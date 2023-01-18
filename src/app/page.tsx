@@ -23,7 +23,12 @@ export default function Home() {
         <main className='px-10 container mx-auto md:px-20 lg:px-40'>
           <section className='min-h-screen'>
             <nav className='py-10 mb-12 flex justify-between'>
-              <h1 className='text-2xl font-semibold tracking-widest uppercase font-prompt dark:text-white'>Hi, friend</h1>
+              <h1 className='text-2xl font-semibold tracking-widest uppercase font-prompt dark:text-white'>
+                {translate ?
+                  'Hola, amigo' :
+                  'Hi, friend'
+                }
+              </h1>
               <ul className='flex items-center gap-4'>
                 <li><BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-white' /></li>
                 <li><MdGTranslate onClick={() => setTranslate(!translate)} className='cursor-pointer text-2xl dark:text-white' /></li>
