@@ -11,7 +11,7 @@ export const Card = ({
   items
 }: CardProps) => {
   return (
-    <div className="text-center shadow-lg p-10 rounded-xl my-5 max-w-md dark:bg-gray-500 dark:shadow-black">
+    <div className="text-center shadow-lg p-10 rounded-xl my-5 max-w-sm dark:bg-gray-500 dark:shadow-black">
       <div className='flex justify-center'>
         <Image src={img} alt={title} width={150} height={150} />
       </div>
