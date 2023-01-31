@@ -32,7 +32,7 @@ export default function Home() {
               <ul className='flex items-center gap-4'>
                 <li><BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-white' /></li>
                 <li><MdGTranslate onClick={() => setTranslate(!translate)} className='cursor-pointer text-2xl dark:text-white' /></li>
-                <li><a className='bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-md' href='#'>Resumen</a></li>
+                <li><a className='bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-md' href='/Edwar-Amaya.pdf' download="Edwar-Amaya.pdf">Resumen</a></li>
               </ul>
             </nav>
             <div className='text-center p-10'>
