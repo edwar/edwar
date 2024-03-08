@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import { SlSocialGithub, SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
-import { IoNewspaperOutline } from "react-icons/io5";
+// import { IoNewspaperOutline } from "react-icons/io5";
 
 export default function Navbar() {
     const social = [
@@ -29,12 +29,12 @@ export default function Navbar() {
     <nav className='py-10 flex justify-between items-center'>
       <h1 className='font-bold text-2xl underline underline-offset-8 decoration-slate-600 -rotate-2'>Edwar Amaya</h1>
       <div className='flex items-center gap-5'>
-        <Link
+        {/* <Link
           href="/cv"
           aria-label="Hoja de vida"
         >
           <IoNewspaperOutline className='w-5 h-5 hover:scale-125 transition-all' />
-        </Link>
+        </Link> */}
         {social.map((social) => {
             const Icon = social.icon;
             return <Link
