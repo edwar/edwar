@@ -5,7 +5,7 @@ interface Props {
 }
 export function GridBackground({ children }: Props) {
   return (
-    <div className="min-h-screen bg-transparent bg-grid-white/[0.05]">
+    <div className="min-h-screen bg-transparent bg-grid-small-white/[0.3]">
       <div className="max-w-7xl mx-auto p-5">
         {children}
       </div>
