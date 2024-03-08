@@ -1,19 +1,44 @@
-import React from 'react'
-import './globals.css'
+import "@/app/globals.css"
+import { Montserrat } from "next/font/google"
+
+import { cn } from "@/lib/utils"
+import { GridBackground } from "@/components/ui/GridBackground"
+import { ThemeProvider } from "@/components/ThemeProvider"
+import { Metadata } from "next"
+import { ReactNode } from "react"
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+})
+
+export const metadata: Metadata = {
+  title: "Portafolio | Edwar Amaya",
+  description: "Portafolio personal de Edwar Amaya"
+}
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: ReactNode
+}>) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang="es-Co" suppressHydrationWarning>
       <head />
-      <body>{children}</body>
+      <body className={cn(
+          "min-h-screen bg-black",
+          montserrat.className
+        )}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <GridBackground>
+              {children}
+            </GridBackground>
+          </ThemeProvider>
+        </body>
     </html>
   )
 }
