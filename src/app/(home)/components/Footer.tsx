@@ -1,20 +1,21 @@
 "use client"
-import { Separator } from '@/components/ui/Separator'
+import Upc from '@/icons/Upc'
 import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='flex justify-center items-center flex-col border-t border-t-white/90 gap-5 py-10 px-5'>
-      <h3 className='text-4xl font-normal text-center lg:text-left'>Gracias por visitar mi portafolio 🧑🏽‍💻</h3>
-      <div className='flex w-full flex-col lg:flex-row h-auto lg:h-12 justify-center items-center gap-10 text-center'>
-        <span className='lg:w-1/3 font-light text-lg lg:text-2xl'>Edwar Amaya</span>
-        <Separator className='hidden lg:inline-flex' orientation='vertical' />
-        <Separator className='inline-flex lg:hidden' />
-        <span className='lg:w-1/2 font-light text-lg lg:text-2xl'>Univeridad Piloto de Colombia Girardot</span>
-        <Separator className='hidden lg:inline-flex' orientation='vertical' />
-        <Separator className='inline-flex lg:hidden' />
-        <span className='lg:w-1/3 font-light text-lg lg:text-2xl'>Ingeniero de sistemas</span>
+  <footer className="w-full max-w-screen-xl">
+    <div className="flex items-center justify-between">
+      <div className="flex relative">
+          <Upc className="absolute bottom-2"/>
+          <span className="text-2xl font-semibold whitespace-nowrap text-white">Edwar Amaya</span>
       </div>
-    </footer>
+      <div className="flex">
+          <span className='text-sm lg:text-xl text-white'>Ingeniero de sistemas</span>
+      </div>
+    </div>
+    <hr className="my-3 m:mx-auto border-slate-800 lg:my-5" />
+    <span className="block text-lg text-center text-white">2024</span>
+  </footer>
   )
 }
