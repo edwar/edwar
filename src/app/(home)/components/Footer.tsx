@@ -5,16 +5,18 @@ import React from 'react'
 export default function Footer() {
   return (
   <footer className="w-full max-w-screen-xl">
-    <div className="flex items-center justify-between">
-      <div className="flex relative">
-          <Upc className="absolute bottom-2"/>
+    <div className="flex flex-col justify-center md:flex-row items-end md:justify-between">
+      <div className="flex order-2 md:order-1 justify-center w-full md:w-1/3">
           <span className="text-2xl font-semibold whitespace-nowrap text-white">Edwar Amaya</span>
       </div>
-      <div className="flex">
-          <span className='text-sm lg:text-xl text-white'>Ingeniero de sistemas</span>
+      <div className="flex order-1 md:order-2 justify-center w-full md:w-1/3">
+          <Upc />
+      </div>
+      <div className="flex order-3 justify-center w-full md:w-1/3">
+          <span className='text-xl font-semibold whitespace-nowrap text-white'>Ingeniero de sistemas</span>
       </div>
     </div>
-    <hr className="my-3 m:mx-auto border-slate-800 lg:my-5" />
+    <hr className="my-3 sm:mx-auto border-slate-800" />
     <span className="block text-lg text-center text-white">2024</span>
   </footer>
   )
