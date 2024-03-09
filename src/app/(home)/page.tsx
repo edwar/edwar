@@ -10,8 +10,8 @@ export default function page() {
     <main>
       <Navbar />
       <HeroSection />
-      <Projects />
       <Skills />
+      <Projects />
       <Footer />
     </main>
   )
