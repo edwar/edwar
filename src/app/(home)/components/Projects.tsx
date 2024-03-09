@@ -8,27 +8,20 @@ export default function Projects() {
         {
             id: 1,
             alt: "Pichincha Miles",
-            src: "/web-1.webp"
+            src: "/web-1.webp",
+            url: "https://www.pichinchamiles.com/"
         },
         {
             id: 2,
             alt: "Pichincha Miles",
-            src: "/web-2.webp"
+            src: "/web-2.webp",
+            url: "https://bgrvisamiles.com.ec/"
         },
         {
             id: 3,
             alt: "Pichincha Miles",
-            src: "/web-3.webp"
-        },
-        {
-            id: 4,
-            alt: "Pichincha Miles",
-            src: "/web-4.webp"
-        },
-        {
-            id: 5,
-            alt: "Pichincha Miles",
-            src: "/web-5.webp"
+            src: "/web-3.webp",
+            url: "https://clubmiles.com.ec/"
         }
     ];
   return (

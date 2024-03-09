@@ -5,6 +5,7 @@ type Project = {
     id: number;
     src: string;
     alt: string;
+    url: string
 }
 
 interface Props {
@@ -14,11 +15,11 @@ interface Props {
 export default function Grid({ projects }: Props) {
   return (
     <div className="flex flex-wrap justify-center gap-10 py-16">
-        {projects.map(({ alt, id, src}) => {
+        {projects.map(({ alt, id, src, url }) => {
             return (
-                <div className='min-w-[351px] md:min-w-[597px]' key={id}>
+                <a href={url} target='_blank' className='min-w-[351px] md:min-w-[597px]' key={id}>
                     <Mac alt={alt} src={src} />
-                </div>
+                </a>
             );
         })}
     </div>
