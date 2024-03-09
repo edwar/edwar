@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { SlBriefcase, SlRocket } from 'react-icons/sl'
 import Title from './Title'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
@@ -24,7 +25,7 @@ export default function HeroSection() {
             <div className='relative'>
                 <div className='w-72 h-[25rem] space-x-3 relative'>
                     <div className='glow absolute top-[80%] right-1/2'></div>
-                    <img src="/profile.webp" alt="Edwar Amaya" className='absolute' />
+                    <Image width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='absolute' />
                 </div>
                 <div className='absolute bottom-5 sm:bottom-8 left-0 sm:left-5'>
                     <Button className='px-5 py-3 font-semibold' borderRadius='0.5rem' duration={3000}>
