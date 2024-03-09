@@ -52,7 +52,7 @@ export const HoverEffect = ({
                 </AnimatePresence>
                 <div className="rounded-md w-full p-4 overflow-hidden bg-black group-hover:ring-2 ring-slate-90 relative z-20 transition-all duration-500 cursor-pointer">
                     <div className="py-10 z-50 relative space-y-5">
-                        <Icon className="w-8 h-8 mx-auto"/>
+                        <Icon className="w-16 h-16 mx-auto text-red-500"/>
                         <p className="text-2xl font-bold text-center text-gray-300">{item.text}</p>
                     </div>
                     <Meteors className="hidden group-hover:block" />

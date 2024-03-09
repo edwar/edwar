@@ -19,7 +19,7 @@ export default function HeroSection() {
                 </p>
                 <Link href={"mailto:edwaramayadiaz@gmail.com"} className='inline-block'>
                     <Title isInteractive>
-                        Contactame <SlRocket className='text-rose-600' />
+                        Contactame <SlRocket className='text-red-500' />
                     </Title>
                 </Link>
             </div>
@@ -30,7 +30,7 @@ export default function HeroSection() {
                 </div>
                 <div className='absolute bottom-5 sm:bottom-8 left-0 sm:left-5'>
                     <Button className='px-5 py-3 font-semibold' borderRadius='0.5rem' duration={3000}>
-                        <p className='inline-flex gap-2'><SlBriefcase className='w-5 h-5 text-amber-800' /> Listo para trabajar</p>
+                        <p className='inline-flex gap-2'><SlBriefcase className='w-5 h-5 text-red-500' /> Listo para trabajar</p>
                     </Button>
                 </div>
             </div>
