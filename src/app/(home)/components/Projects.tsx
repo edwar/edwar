@@ -25,7 +25,7 @@ export default function Projects() {
         }
     ];
   return (
-    <div className='mt-20 lg:mt-0'>
+    <div className='relative mt-20 lg:mt-0'>
         <Title className='flex flex-col items-center justify-center -rotate-6'>Projectos <AiFillCode className='text-red-500' /></Title>
         <Grid projects={projects} />
     </div>
