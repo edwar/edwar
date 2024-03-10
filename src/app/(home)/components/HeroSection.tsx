@@ -30,7 +30,7 @@ export default function HeroSection() {
                         <Image loading='lazy' width={288} height={401} src="/profile.webp" alt="Edwar Amaya" />
                     </div>
                     <div className='absolute bottom-5 sm:bottom-8 left-0 sm:left-5'>
-                        <Button className='px-5 py-3 font-semibold' borderRadius='0.5rem' duration={3000}>
+                        <Button className='px-5 py-3 font-semibold cursor-default' borderRadius='0.5rem' duration={3000}>
                             <p className='inline-flex gap-2'><SlBriefcase className='w-5 h-5 text-red-500' /> Listo para trabajar</p>
                         </Button>
                     </div>
