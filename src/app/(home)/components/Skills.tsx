@@ -57,7 +57,7 @@ export default function Skills() {
     },
   ]
   return (
-    <div className='px-8 mt-20'>
+    <div className='relative px-8 mt-20'>
       <Title className='flex flex-col items-center justify-center -rotate-6'>Skills <SlFire className='text-red-500' /></Title>
       <HoverEffect items={skills}/>
     </div>
