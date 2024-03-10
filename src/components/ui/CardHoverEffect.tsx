@@ -55,7 +55,6 @@ export const HoverEffect = ({
                         <Icon className="w-16 h-16 mx-auto text-red-500"/>
                         <p className="text-2xl font-bold text-center text-gray-300">{item.text}</p>
                     </div>
-                    <Meteors className="hidden group-hover:block" />
                 </div>
             </div>
         );
