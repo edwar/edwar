@@ -54,7 +54,6 @@ export const WavyBackground = ({
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
-        console.log(document.body.clientHeight)
       w = ctx.canvas.width = document.body.clientWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
