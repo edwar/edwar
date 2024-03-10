@@ -10,11 +10,25 @@ import { ReactNode } from "react"
 const montserrat = Montserrat({
   subsets: ["latin"],
 })
-
 export const metadata: Metadata = {
+	metadataBase: new URL("https://edwar.vercel.app/"),
+
   title: "Portafolio | Edwar Amaya",
-  description: "Portafolio personal de Edwar Amaya"
-}
+  description: "Portafolio personal de Edwar Amaya",
+	authors: {
+		name: "edwar",
+	},
+	openGraph: {
+		title: "Portafolio | Edwar Amaya",
+		description:
+			"Portafolio personal de Edwar Amaya",
+		url: "https://edwar.vercel.app/",
+		siteName: "Portafolio",
+		images: "/og.webp",
+		type: "website",
+	},
+	keywords: ["Portafolio web", "edwar"],
+};
 
 export default function RootLayout({
   children,
