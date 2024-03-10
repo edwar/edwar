@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import "@/app/globals.css"
 import { Montserrat } from "next/font/google"
 
@@ -50,6 +51,7 @@ export default function RootLayout({
           >
             <GridBackground>
               {children}
+              <Analytics />
             </GridBackground>
           </ThemeProvider>
         </body>
