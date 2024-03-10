@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 			"Portafolio personal de Edwar Amaya",
 		url: "https://edwar.vercel.app/",
 		siteName: "Portafolio",
-		images: "/og.webp",
+		images: "/og.png",
 		type: "website",
 	},
 	keywords: ["Portafolio web", "edwar"],
