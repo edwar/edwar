@@ -79,7 +79,7 @@ export default function KeyboardManager() {
         <kbd className="flex justify-center items-center gap-1 w-7 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">+</kbd>
         <kbd className="flex justify-center items-center gap-1 w-7 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">K</kbd>
       </div>
-      <div onClick={() => setOpen(true)} className="fixed inset-0 py-4 h-14 w-28 cursor-pointer inline-flex lg:hidden gap-1 left-1/2 -translate-x-1/2">
+      <div role="none" onClick={() => setOpen(true)} className="fixed inset-0 py-4 h-14 w-28 cursor-pointer inline-flex lg:hidden gap-1 left-1/2 -translate-x-1/2">
         <button className="flex justify-center items-center gap-1 w-24 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">Commandos</button>
       </div>
       <Command
