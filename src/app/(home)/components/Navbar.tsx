@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
 import { SlSocialGithub, SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
-// import { IoNewspaperOutline } from "react-icons/io5";
 
 export default function Navbar() {
     const social = [

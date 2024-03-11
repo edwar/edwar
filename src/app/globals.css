@@ -64,6 +64,9 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+  ::selection {
+    background: #94a3b8;
+  }
 }
  
 @layer base {
@@ -80,4 +83,23 @@
   height: 0;
   border-radius: 50%;
   box-shadow: 0 0 200px 120px #0369a1;
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+  #headlessui-portal-root {
+    display: none
+  }
+}
+
+.print {
+  display: none;
+}
+
+@media print {
+  .print {
+    display: block;
+  }
 }

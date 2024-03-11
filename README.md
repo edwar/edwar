@@ -1,3 +1,12 @@
+Schema del JSON de CV:
+https://jsonresume.org/
+
+Aprendido en la clase de Midudev
+https://www.youtube.com/watch?v=Zwh92LTB-Bk
+
+Basado en el diseño de:
+https://github.com/BartoszJarocki/cv
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

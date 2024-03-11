@@ -4,15 +4,18 @@ import HeroSection from './components/HeroSection'
 import Skills from './components/Skills'
 import Footer from './components/Footer'
 import Projects from './components/Projects'
+import { GridBackground } from '@/components/ui/GridBackground'
 
 export default function page() {
   return (
-    <main>
-      <Navbar />
-      <HeroSection />
-      <Projects />
-      <Skills />
-      <Footer />
-    </main>
+    <GridBackground>
+      <main>
+        <Navbar />
+        <HeroSection />
+        <Projects />
+        <Skills />
+        <Footer />
+      </main>
+    </GridBackground>
   )
 }

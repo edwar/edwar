@@ -1,9 +1,9 @@
 import { Analytics } from '@vercel/analytics/react';
+import "superkey/styles.css";
 import "@/app/globals.css"
 import { Montserrat } from "next/font/google"
 
 import { cn } from "@/lib/utils"
-import { GridBackground } from "@/components/ui/GridBackground"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { Metadata } from "next"
 import { ReactNode } from "react"
@@ -40,7 +40,7 @@ export default function RootLayout({
     <html lang="es-Co" suppressHydrationWarning>
       <head />
       <body className={cn(
-          "min-h-screen bg-black",
+          "min-h-screen",
           montserrat.className
         )}>
           <ThemeProvider
@@ -49,10 +49,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <GridBackground>
-              {children}
-              <Analytics />
-            </GridBackground>
+            {children}
+            <Analytics />
           </ThemeProvider>
         </body>
     </html>
