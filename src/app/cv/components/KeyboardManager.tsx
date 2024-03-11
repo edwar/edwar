@@ -74,10 +74,13 @@ export default function KeyboardManager() {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-start justify-center gap-3 py-4">
-          <kbd className="flex justify-center items-center gap-1 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"><BsCommand size={15} />Cmd</kbd>
-          <kbd className="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">+</kbd>
-          <kbd className="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">K</kbd>
+      <div className="fixed inset-0 py-4 h-14 w-28 lg:inline-flex hidden gap-1 left-1/2 -translate-x-1/2">
+        <kbd className="flex justify-center items-center gap-1 w-14 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"><BsCommand size={15} />Cmd</kbd>
+        <kbd className="flex justify-center items-center gap-1 w-7 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">+</kbd>
+        <kbd className="flex justify-center items-center gap-1 w-7 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">K</kbd>
+      </div>
+      <div onClick={() => setOpen(true)} className="fixed inset-0 py-4 h-14 w-28 cursor-pointer inline-flex lg:hidden gap-1 left-1/2 -translate-x-1/2">
+        <button className="flex justify-center items-center gap-1 w-24 px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">Commandos</button>
       </div>
       <Command
         open={open}
