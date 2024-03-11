@@ -22,7 +22,7 @@ export default function Experience() {
                         <h3 className='text-xl font-bold'>{name}</h3>
                         <h4 className='text-lg font-semibold'>{position}</h4>
                       </div>
-                      <time className='text-md text-slate-500 font-normal'>{years}</time>
+                      <time className='text-md text-slate-500 font-normal text-nowrap'>{years}</time>
                     </header>
                     <footer>
                       <p className='text-balance text-base'>{summary}</p>

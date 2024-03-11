@@ -240,10 +240,8 @@ export const RESUME_DATA = {
         "isActive": true,
         "startDate": "2019-01-01",
         "endDate": "2021-01-01",
-        "description": "Description...",
-        "highlights": [
-          "Won award at AIHacks 2016"
-        ],
+        "description": "Plataforma de canje de millas del banco Pichincha, que le permite a sus social el intercambio de sus millas acumuladas por productos diponibles dentro de la plataforma",
+        "highlights": [],
         "url": "https://www.pichinchamiles.com/"
       },
       {
@@ -251,10 +249,8 @@ export const RESUME_DATA = {
         "isActive": true,
         "startDate": "2019-01-01",
         "endDate": "2021-01-01",
-        "description": "Description...",
-        "highlights": [
-          "Won award at AIHacks 2016"
-        ],
+        "description": "Plataforma de canje de millas de Club Miles Ecuador, que le permite a sus social el intercambio de sus millas acumuladas por productos diponibles dentro de la plataforma",
+        "highlights": [],
         "url": "https://clubmiles.com.ec/"
       },
       {
@@ -262,10 +258,8 @@ export const RESUME_DATA = {
         "isActive": true,
         "startDate": "2019-01-01",
         "endDate": "2021-01-01",
-        "description": "Description...",
-        "highlights": [
-          "Won award at AIHacks 2016"
-        ],
+        "description": "Plataforma de canje de millas de BGR Visa Miles, que le permite a sus social el intercambio de sus millas acumuladas por productos diponibles dentro de la plataforma",
+        "highlights": [],
         "url": "https://bgrvisamiles.com.ec/"
       }
     ]

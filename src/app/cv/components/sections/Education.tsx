@@ -25,7 +25,7 @@ export default function Education() {
                         </Link>
                         <p className='text-balance text-lg'>{area}</p>
                       </div>
-                      <time className='text-md text-slate-500 font-normal'>{years}</time>
+                      <time className='text-md text-slate-500 font-normal text-nowrap'>{years}</time>
                     </header>
                   </article>
                 </li>
