@@ -2,9 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import "superkey/styles.css";
 import "@/app/globals.css"
 import { Montserrat } from "next/font/google"
-
 import { cn } from "@/lib/utils"
-import { ThemeProvider } from "@/components/ThemeProvider"
 import { Metadata } from "next"
 import { ReactNode } from "react"
 
@@ -43,15 +41,8 @@ export default function RootLayout({
           "min-h-screen",
           montserrat.className
         )}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-            <Analytics />
-          </ThemeProvider>
+          {children}
+          <Analytics />
         </body>
     </html>
   )

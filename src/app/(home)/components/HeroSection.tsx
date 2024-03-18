@@ -8,7 +8,7 @@ import { WavyBackground } from '@/components/ui/WavyBackground'
 
 export default function HeroSection() {
   return (
-    <WavyBackground >
+    <WavyBackground backgroundFill='#09090b'>
         <div className='min-h-[60vh] flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row items-center justify-between'>
                 <div className='space-y-10 text-center lg:text-left'>
                     <h1 className='text-4xl lg:text-7xl font-bold'>
