@@ -88,6 +88,12 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "meteor-effect": "meteor 5s linear infinite",
       },
+      dropShadow: {
+        '3xl': [
+          '0 0px 10px rgba(232, 121, 249, 0.7)',
+          '0 0px 15px rgba(129, 140, 248, 0.7)',
+        ],
+      }
     },
   },
   plugins: [

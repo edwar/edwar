@@ -15,7 +15,7 @@ export default function HeroSection() {
                         Mucho gusto!<br />
                         <span className='underline underline-offset-8 decoration-slate-600'>{'Soy Edwar.'}</span>
                     </h1>
-                    <p className='md:w-4/5 text-lg text-slate-300'>
+                    <p className='md:w-4/5 text-lg'>
                         {'Me dedico a desarrollar interfaces que sean tan atractivas como fáciles de usar. Tengo experiencia en proyectos de todo tipo, desde pequeñas startups hasta grandes empresas.'}
                     </p>
                     <Link href={"mailto:edwaramayadiaz@gmail.com"} className='inline-block'>
@@ -24,12 +24,11 @@ export default function HeroSection() {
                         </Title>
                     </Link>
                 </div>
-                <div className='relative'>
+                <div className='relative group'>
                     <div className='w-72 h-[25rem] space-x-3 relative'>
-                        <div className='glow absolute top-[80%] right-1/2 -z-10'></div>
-                        <Image loading='lazy' width={288} height={401} src="/profile.webp" alt="Edwar Amaya" />
+                        <Image loading='lazy' width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
                     </div>
-                    <div className='absolute bottom-5 sm:bottom-8 left-0 sm:left-5'>
+                    <div className='absolute -bottom-5 sm:-bottom-2 left-5'>
                         <Link href="/cv">
                             <Button className='px-5 py-3 font-semibold' borderRadius='0.5rem' duration={3000}>
                                 <p className='inline-flex gap-2'><SlBriefcase className='w-5 h-5 text-red-500' /> Listo para trabajar</p>
