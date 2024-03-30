@@ -2,6 +2,7 @@ import Grid from '@/components/ui/Grid'
 import React from 'react'
 import Title from './Title';
 import { AiFillCode } from "react-icons/ai";
+import { MotionTransitionFadeIn } from '@/components/MotionTransitionFadeIn';
 
 export default function Projects() {
     const projects = [
@@ -25,9 +26,12 @@ export default function Projects() {
         }
     ];
   return (
-    <div className='relative mt-20 lg:mt-0'>
-        <Title className='flex flex-col items-center justify-center -rotate-6'>Projectos <AiFillCode className='text-red-500' /></Title>
-        <Grid projects={projects} />
-    </div>
+    <MotionTransitionFadeIn variant="top">
+
+        <div className='relative mt-20 lg:mt-0'>
+            <Title className='flex flex-col items-center justify-center -rotate-6'>Projectos <AiFillCode className='text-red-500' /></Title>
+            <Grid projects={projects} />
+        </div>
+    </MotionTransitionFadeIn>
   )
 }

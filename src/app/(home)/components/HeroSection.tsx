@@ -5,11 +5,13 @@ import { SlBriefcase, SlRocket } from 'react-icons/sl'
 import Title from './Title'
 import Image from 'next/image'
 import { WavyBackground } from '@/components/ui/WavyBackground'
+import { MotionTransitionFadeIn } from '@/components/MotionTransitionFadeIn'
 
 export default function HeroSection() {
   return (
     <WavyBackground backgroundFill='#09090b'>
         <div className='min-h-[60vh] flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row items-center justify-between'>
+            <MotionTransitionFadeIn variant="letf">
                 <div className='space-y-10 text-center lg:text-left'>
                     <h1 className='text-4xl lg:text-7xl font-bold'>
                         Mucho gusto!<br />
@@ -24,6 +26,8 @@ export default function HeroSection() {
                         </Title>
                     </Link>
                 </div>
+            </MotionTransitionFadeIn>
+            <MotionTransitionFadeIn variant="right">
                 <div className='relative group'>
                     <div className='w-72 h-[25rem] space-x-3 relative'>
                         <Image priority quality={75} width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl gradient-mask-b-70 md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
@@ -36,6 +40,7 @@ export default function HeroSection() {
                         </Link>
                     </div>
                 </div>
+            </MotionTransitionFadeIn>
         </div>
     </WavyBackground>
   )
