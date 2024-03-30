@@ -1,5 +1,6 @@
 "use client"
 import Upc from '@/icons/Upc'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Footer() {
@@ -10,7 +11,9 @@ export default function Footer() {
           <span className="text-lg md:text-xl font-light md:font-medium whitespace-nowrap text-white">Edwar Amaya</span>
       </div>
       <div className="flex order-1 md:order-2 justify-center w-full md:w-1/3">
-          <Upc />
+          <Link href="https://girardot.unipiloto.edu.co/" target='_blank'>
+            <Upc />
+          </Link>
       </div>
       <div className="flex order-3 justify-center w-full md:w-1/3">
           <span className='text-lg md:text-xl font-light md:font-medium whitespace-nowrap text-white'>Ingeniero de sistemas</span>

@@ -26,12 +26,12 @@ export default function HeroSection() {
                 </div>
                 <div className='relative group'>
                     <div className='w-72 h-[25rem] space-x-3 relative'>
-                        <Image loading='lazy' width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
+                        <Image loading='lazy' width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl gradient-mask-b-70 md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
                     </div>
-                    <div className='absolute -bottom-5 sm:-bottom-2 left-5'>
+                    <div className='absolute bottom-5 left-1/2 transform -translate-x-1/2'>
                         <Link href="/cv">
                             <Button className='px-5 py-3 font-semibold' borderRadius='0.5rem' duration={3000}>
-                                <p className='inline-flex gap-2'><SlBriefcase className='w-5 h-5 text-red-500' /> Listo para trabajar</p>
+                                <p className='inline-flex gap-2 text-nowrap'><SlBriefcase className='w-5 h-5 text-red-500' /> Listo para trabajar</p>
                             </Button>
                         </Link>
                     </div>

@@ -90,14 +90,15 @@ module.exports = {
       },
       dropShadow: {
         '3xl': [
-          '0 0px 10px rgba(232, 121, 249, 0.7)',
-          '0 0px 15px rgba(129, 140, 248, 0.7)',
+          '0 0px 2px rgba(232, 121, 249, 0.7)',
+          '0 0px 5px rgba(129, 140, 248, 0.7)',
         ],
       }
     },
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("tailwind-gradient-mask-image"),
     addVariablesForColors,
     function ({ matchUtilities, theme }) {
       matchUtilities(
