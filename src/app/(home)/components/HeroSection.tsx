@@ -26,7 +26,7 @@ export default function HeroSection() {
                 </div>
                 <div className='relative group'>
                     <div className='w-72 h-[25rem] space-x-3 relative'>
-                        <Image priority width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl gradient-mask-b-70 md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
+                        <Image priority quality={75} width={288} height={401} src="/profile.webp" alt="Edwar Amaya" className='filter drop-shadow-3xl gradient-mask-b-70 md:group-hover:scale-110 md:group-hover:-translate-y-10 md:transition-all md:duration-1000' />
                     </div>
                     <div className='absolute bottom-5 left-1/2 transform -translate-x-1/2'>
                         <Link href="/cv">

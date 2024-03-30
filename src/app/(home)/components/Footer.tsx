@@ -11,7 +11,7 @@ export default function Footer() {
           <span className="text-lg md:text-xl font-light md:font-medium whitespace-nowrap text-white">Edwar Amaya</span>
       </div>
       <div className="flex order-1 md:order-2 justify-center w-full md:w-1/3">
-          <Link href="https://girardot.unipiloto.edu.co/" target='_blank'>
+          <Link href="https://girardot.unipiloto.edu.co/" target='_blank' aria-label="Universidad piloto de colombia seccional Girardot">
             <Upc />
           </Link>
       </div>
