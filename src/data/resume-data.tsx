@@ -6,7 +6,7 @@ export const RESUME_DATA = {
       "label": "Programador web frontend con mas de 5 años de experiencia",
       "image": "/profile.webp",
       "email": "edwaramayadiaz@gmail.com",
-      "phone": "+60 3165227672",
+      "phone": "+57 3175227672",
       "url": "https://edwar.vercel.app/",
       "summary": "Me dedico a desarrollar interfaces que sean tan atractivas como fáciles de usar. Tengo experiencia en proyectos de todo tipo, desde pequeñas startups hasta grandes empresas.",
       "location": {
