@@ -25,7 +25,7 @@ const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(" • ")
 
   return (
     <Section>
-      <div className='flex justify-between items-start gap-4'>
+      <div className='flex justify-between items-start gap-3'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-[2rem] font-bold'>{name}</h1>
           <h2 className='text-[#444] text-[1.3rem] font-normal text-balance'>{label}</h2>

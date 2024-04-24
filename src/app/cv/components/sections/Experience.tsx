@@ -7,7 +7,7 @@ const { work } = RESUME_DATA
 export default function Experience() {
   return (
     <Section title='Experiencia laboral'>
-      <ul className='flex flex-col gap-8'>
+      <ul className='flex flex-col gap-6'>
         {
           work.map(
             ({ name, startDate, endDate, position, summary }) => {

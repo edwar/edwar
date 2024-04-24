@@ -8,7 +8,7 @@ const { education } = RESUME_DATA
 export default function Education() {
   return (
     <Section title='Educación'>
-      <ul className='flex flex-col gap-8'>
+      <ul className='flex flex-col gap-6'>
         {
           education.map(
             ({ institution, startDate, endDate, url, area }) => {
