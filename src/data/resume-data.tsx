@@ -40,7 +40,7 @@ export const RESUME_DATA = {
         "position": "Ingeniero de software",
         "url": "https://www.ppm.com.ec/",
         "startDate": "2023-03-01",
-        "endDate": null,
+        "endDate": "2025-02-12",
         "summary": "Me encargo de desarrollar aplicativos de e-commerce para el banco Pichincha.",
         "highlights": [
           "Started the company"
