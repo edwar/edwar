@@ -70,7 +70,7 @@ export const RESUME_DATA = {
       },
       {
         "name": "LQN",
-        "position": "Forntend Developer Middle",
+        "position": "Frontend Developer Middle",
         "url": "https://loquenecesito.co/",
         "startDate": "2017-12-01",
         "endDate": "2018-09-01",
