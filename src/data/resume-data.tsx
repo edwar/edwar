@@ -7,7 +7,7 @@ export const RESUME_DATA = {
       "image": "/profile.webp",
       "email": "edwaramayadiaz@gmail.com",
       "phone": "+57 3175227672",
-      "url": "https://edwar.vercel.app/",
+      "url": "https://edwaramaya.com/",
       "summary": "Me dedico a desarrollar interfaces que sean tan atractivas como fáciles de usar. Tengo experiencia en proyectos de todo tipo, desde pequeñas startups hasta grandes empresas.",
       "location": {
         "address": "Calle 1 # 11-30",

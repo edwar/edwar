@@ -8,7 +8,7 @@ import { BiWorld } from "react-icons/bi";
 import Section from '../Section';
 import { IconType } from 'react-icons';
 
-const { basics: { name, label, image, location, profiles, phone, email } } = RESUME_DATA
+const { basics: { name, label, image, location, profiles, phone, email, url } } = RESUME_DATA
 const { city, region } = location
 
 
@@ -23,7 +23,7 @@ export default function Hero() {
 const linkedinInfo = profiles.find(({ network }) => network === "LinkedIn")
 const linkedinUrl = linkedinInfo?.url
 
-const printInfo = [email, phone, linkedinUrl].filter(Boolean).join(" • ")
+const printInfo = [email, phone, linkedinUrl, url].filter(Boolean).join(" • ")
 
   return (
     <Section>
