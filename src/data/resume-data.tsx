@@ -31,6 +31,11 @@ export const RESUME_DATA = {
           "network": "GitHub",
           "username": "edwar",
           "url": "https://github.com/edwar"
+        },
+        {
+          "network": "Web",
+          "username": "edwaramayadiaz",
+          "url": "https://edwaramaya.com/"
         }
       ]
     },

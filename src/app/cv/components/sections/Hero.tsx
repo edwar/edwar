@@ -3,6 +3,7 @@ import { RESUME_DATA } from "@/data/resume-data"
 import Image from 'next/image';
 import { IoMailOutline, IoPhonePortraitOutline } from "react-icons/io5";
 import { SlSocialGithub, SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
+import { TbWorldWww } from "react-icons/tb";
 import { BiWorld } from "react-icons/bi";
 import Section from '../Section';
 import { IconType } from 'react-icons';
@@ -16,6 +17,7 @@ export default function Hero() {
     GitHub: SlSocialGithub,
     LinkedIn: SlSocialLinkedin,
     X: SlSocialTwitter,
+    Web: TbWorldWww
   }
 
 const linkedinInfo = profiles.find(({ network }) => network === "LinkedIn")
