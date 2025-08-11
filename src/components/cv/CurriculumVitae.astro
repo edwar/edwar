@@ -1,0 +1,218 @@
+---
+import Section from "@/components/ui/Section.astro";
+
+// Very permissive type for the resume data
+interface ResumeData {
+  basics: {
+    name: string;
+    label: string;
+    image?: string;
+    email: string;
+    phone: string;
+    url: string;
+    summary: string;
+    location: Record<string, any>;
+    profiles: Array<Record<string, any>>;
+    [key: string]: any;
+  };
+  work: Array<Record<string, any>>;
+  education: Array<Record<string, any>>;
+  skills: Array<Record<string, any>>;
+  projects: Array<Record<string, any>>;
+  languages?: Array<Record<string, any>>;
+  interests?: Array<Record<string, any>>;
+  references?: Array<Record<string, any>>;
+  [key: string]: any;
+}
+
+// Get the resume data from props
+const { resumeData } = Astro.props as { resumeData: ResumeData };
+
+// Format date function with proper type checking
+const formatDate = (dateString: string | undefined): string => {
+  if (!dateString) return 'Presente';
+  try {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  } catch (error) {
+    console.error('Error formatting date:', error);
+    return dateString || 'Presente';
+  }
+};
+---
+
+<main class="max-w-4xl mx-auto p-6 font-sans text-gray-800 bg-white">
+  <!-- Back Button -->
+  <button 
+    onclick="window.history.back()" 
+    class="flex items-center text-slate-600 hover:text-slate-800 mb-6 hover:font-bold hover:scale-105 transition-all duration-200 cursor-pointer"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+    Volver atrás
+  </button>
+
+  <!-- Header Section -->
+  <header class="mb-8 border-b pb-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900">{resumeData.basics.name}</h1>
+        <p class="text-lg text-gray-600">{resumeData.basics.label}</p>
+      </div>
+      <div class="mt-4 md:mt-0 text-sm">
+        <p>{resumeData.basics.location.city}, {resumeData.basics.location.region}</p>
+        <p>{resumeData.basics.email}</p>
+        <p>{resumeData.basics.phone}</p>
+        <p class="mt-2">
+          {resumeData.basics.profiles.map(profile => (
+            <a 
+              href={profile.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="mr-2 hover:text-blue-600 hover:underline transition-all cursor-pointer"
+            >
+              {profile.network}
+            </a>
+          ))}
+        </p>
+      </div>
+    </div>
+    <p class="mt-4 text-gray-700">{resumeData.basics.summary}</p>
+  </header>
+
+  <!-- Experience Section -->
+  <Section>
+    <h2 class="text-2xl font-bold mb-4 pb-2 border-b">Experiencia Laboral</h2>
+    <div class="space-y-6">
+      {resumeData.work.map(job => (
+        <div class="mb-6">
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-semibold">{job.position}</h3>
+            <p class="text-sm text-gray-600">
+              {formatDate(job.startDate)} - {job.endDate ? formatDate(job.endDate) : 'Presente'}
+            </p>
+          </div>
+          <div class="flex justify-between text-gray-700">
+            <span class="font-medium">{job.name}</span>
+            <span>{job.location}</span>
+          </div>
+          <ul class="mt-2 list-disc list-inside text-gray-700">
+            {job.highlights.map((highlight: string) => (
+              <li>{highlight}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Education Section -->
+  <Section class="mt-8">
+    <h2 class="text-2xl font-bold mb-4 pb-2 border-b">Educación</h2>
+    <div class="space-y-4">
+      {resumeData.education.map(edu => (
+        <div>
+          <div class="flex justify-between">
+            <h3 class="font-semibold">{edu.studyType} en {edu.area}</h3>
+            <p class="text-sm text-gray-600">
+              {formatDate(edu.startDate)} - {formatDate(edu.endDate) || 'Presente'}
+            </p>
+          </div>
+          <p class="text-gray-700">{edu.institution}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Skills Section -->
+  <Section class="mt-8">
+    <h2 class="text-2xl font-bold mb-4 pb-2 border-b">Habilidades Técnicas</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {resumeData.skills.map(skill => (
+        <div>
+          <h4 class="font-medium">{skill.name}</h4>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
+            <div 
+              class="bg-blue-600 h-2.5 rounded-full" 
+              style={`width: ${skill.level === 'Master' ? '90%' : skill.level === 'Advanced' ? '75%' : skill.level === 'Intermediate' ? '60%' : '40%'}`}
+            ></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Projects Section -->
+  <Section class="mt-8">
+    <h2 class="text-2xl font-bold mb-4 pb-2 border-b">Proyectos Destacados</h2>
+    <div class="space-y-6">
+      {resumeData.projects.map(project => (
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-semibold">{project.name}</h3>
+            {project.url && (
+              <a 
+                href={project.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-blue-600 hover:underline text-sm"
+              >
+                Ver Proyecto
+              </a>
+            )}
+          </div>
+          <p class="text-gray-700 mt-1">{project.description}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+</main>
+
+<style>
+  /* Print styles */
+  @media print {
+    /* Hide back button */
+    button[onclick*="history.back"] {
+      display: none !important;
+    }
+    
+    /* Hide social media links and project view links */
+    .mt-2 > a,
+    .text-blue-600.hover\:underline {
+      display: none !important;
+    }
+    
+    /* Show skill percentages */
+    .bg-blue-600 {
+      position: relative;
+    }
+    
+    .bg-blue-600::after {
+      content: attr(style);
+      position: absolute;
+      right: 5px;
+      top: -2px;
+      font-size: 0.7rem;
+      color: #1e40af;
+      font-weight: bold;
+    }
+    
+    /* Improve print layout */
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    /* Ensure links are visible in print */
+    a {
+      color: #1e40af;
+      text-decoration: none;
+    }
+    
+    /* Add page breaks between major sections */
+    .mt-8 {
+      page-break-inside: avoid;
+    }
+  }
+</style>

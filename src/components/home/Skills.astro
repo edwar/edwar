@@ -1,0 +1,60 @@
+---
+import Section from "@/components/ui/Section.astro";
+import { Icon } from "astro-icon/components";
+
+const skills = [
+  { name: "React", icon: "logos:react" },
+  { name: "Next.js", icon: "logos:nextjs-icon" },
+  { name: "Tailwind", icon: "logos:tailwindcss-icon" },
+  { name: "Git", icon: "logos:git-icon" },
+  { name: "Jira", icon: "logos:jira" },
+  { name: "Bitbucket", icon: "logos:bitbucket" },
+  { name: "Astro", icon: "logos:astro-icon" },
+  { name: "JavaScript", icon: "logos:javascript" },
+  { name: "TypeScript", icon: "logos:typescript-icon" },
+  { name: "Prisma", icon: "logos:prisma" },
+  { name: "PostgreSQL", icon: "logos:postgresql" },
+  { name: "Firebase", icon: "logos:firebase-icon" },
+  { name: "Supabase", icon: "logos:supabase-icon" },
+  { name: "Vercel", icon: "logos:vercel-icon" },
+  { name: "Atlassian", icon: "logos:atlassian" },
+  { name: "Bitbucket", icon: "logos:bitbucket" },
+  { name: "GitHub", icon: "logos:github-icon" },
+  { name: "HTML", icon: "logos:html-5" },
+  { name: "CSS", icon: "logos:css-3" },
+  { name: "Angular", icon: "logos:angular-icon" },
+];
+---
+
+<Section id="skills" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500">
+      My Skills
+    </h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      {
+        skills.map((skill) => (
+          <div 
+            class="group relative p-6 bg-slate-500/50 rounded-2xl backdrop-blur-sm border border-gray-700/50 hover:border-fuchsia-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-fuchsia-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-3"
+          >
+            <div class="w-16 h-16 flex items-center justify-center">
+              <Icon 
+                name={skill.icon} 
+                width="100%" 
+                height="100%" 
+                class="group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+            <span class="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+              {skill.name}
+            </span>
+            
+            {/* Efecto de brillo al pasar el mouse */}
+            <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-30 bg-gradient-to-br from-fuchsia-500/20 to-pink-500/20 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,74 @@
+---
+import Section from "@/components/ui/Section.astro";
+import BentoGrid from '@/components/ui/BentoGrid.astro';
+import BentoGridItem from '@/components/ui/BentoGridItem.astro';
+import { Icon } from "astro-icon/components";
+import SaludTools from '@/assets/web-1.webp';
+import PichinchaMiles from '@/assets/web-2.webp';
+import ClubMiles from '@/assets/web-3.webp';
+import Tharks from '@/assets/web-4.webp';
+import StockPro from '@/assets/web-5.webp';
+import PokeerPlanning from '@/assets/web-6.webp';
+import RentalCars from '@/assets/web-7.webp';
+
+const projects = [
+{
+  name: "Saludtools",
+  image: SaludTools,
+  icons: ["logos:angular-icon", "logos:css-3", "logos:html-5", "logos:javascript", "logos:firebase-icon", "logos:atlassian", "logos:bitbucket"],
+  description:"Medical appointment scheduling and clinical records management project.",
+  link: "https://www.saludtools.com/",
+},
+{
+  name: "Pichincha Miles",
+  image: PichinchaMiles,
+  icons: ["logos:stylus", "logos:nextjs-icon", "logos:css-3", "logos:html-5", "logos:javascript", "logos:react", "logos:atlassian", "logos:bitbucket"],
+  description:"E-commerce project for miles redemption for Pichincha Bank.",
+  link: "https://www.pichinchamiles.com/",
+},
+{
+  name: "Club Miles Ecuador",
+  image: ClubMiles,
+  icons: ["logos:stylus", "logos:nextjs-icon", "logos:css-3", "logos:html-5", "logos:javascript", "logos:react", "logos:atlassian", "logos:bitbucket"],
+  description:"E-commerce project for miles redemption for Club Miles Ecuador.",
+  link: "https://clubmiles.com.ec/",
+},
+{
+  name: "Tharks",
+  image: Tharks,
+  icons: ["logos:react", "logos:stylus", "logos:html-5", "logos:javascript", "logos:firebase-icon", "logos:github-icon", "logos:supabase-icon", "logos:postgresql",],
+  description:"Personal project for sales and inventory control, user and permissions management",
+  link: "https://tharkspos.web.app",
+},
+{
+  name: "Stock Pro",
+  image: StockPro,
+  icons: ["logos:react", "logos:stylus", "logos:html-5", "logos:javascript", "logos:github-icon", "logos:supabase-icon", "logos:postgresql", "logos:vercel-icon"],
+  description:"Personal project for warehouse and inventory management.",
+  link: "https://stock-pro-xi.vercel.app/",
+},
+{
+  name: "Pokeer Planning",
+  image: PokeerPlanning,
+  icons: ["logos:nextjs-icon", "logos:tailwindcss-icon", "logos:html-5", "logos:javascript", "logos:github-icon", "logos:firebase-icon", "logos:vercel-icon"],
+  description:"Personal project for development team sprint planning.",
+  link: "https://pokeer-planning.vercel.app/",
+},
+{
+  name: "Rental Cars",
+  image: RentalCars,
+  icons: ["logos:nextjs-icon", "logos:tailwindcss-icon", "logos:html-5", "logos:javascript", "logos:typescript-icon", "logos:github-icon", "logos:firebase-icon", "logos:prisma", "logos:postgresql", "logos:vercel-icon"],
+  description:"Personal car rental project.",
+  link: "https://rental-cars-seven.vercel.app/",
+},
+];
+---
+
+<Section class="flex flex-col w-full gap-5 items-center justify-center">
+    <h2 class="text-4xl font-extrabold flex gap-2">Projects <Icon name='mdi:fire' class="text-fuchsia-600 animate-pulse" /></h2>
+    <BentoGrid class="p-5">
+        {projects.map((item, index) => (
+          <BentoGridItem key={index} image={item.image} icons={item.icons} title={item.name} description={item.description} link={item.link} class={index === 3 || index === 6 ? "md:col-span-2" : ""} />
+        ))}
+    </BentoGrid>
+</Section>

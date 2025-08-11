@@ -1,0 +1,17 @@
+---
+import Section from "@/components/ui/Section.astro";
+import { Icon } from 'astro-icon/components';
+import cv from '@/assets/cv.svg';
+import { Image } from 'astro:assets';
+---
+
+<Section>
+  <nav class="flex w-full justify-between">
+    <Image src={cv} alt="Edwar Amaya" width="40" height="40" />
+    <ul class="flex gap-4">
+        <li class="p-2 hover:scale-125 transition-all"><a href="https://www.linkedin.com/in/edwaramaya/" target="_blank" rel="noopener noreferrer"><Icon name="arcticons:linkedin" width="32" height="32" class="hover:text-fuchsia-600 transition-all" /></a></li>
+        <li class="p-2 hover:scale-125 transition-all"><a href="https://github.com/edwar/" target="_blank" rel="noopener noreferrer"><Icon name="arcticons:github" width="32" height="32" class="hover:text-fuchsia-600 transition-all" /></a></li>
+        <li class="p-2 hover:scale-125 transition-all"><a href="/cv"><Icon name="arcticons:intelligent-cv" width="32" height="32" class="hover:text-fuchsia-600 transition-all" /></a></li>
+    </ul>
+  </nav>
+</Section>
