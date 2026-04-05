@@ -1,15 +1,35 @@
 ---
 import "@/styles/global.css";
 import Background from "@/components/ui/Background.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Edwar | Portfolio", 
+	description = "Frontend Web Developer Portfolio - Edwar Amaya" 
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Edwar | Portfolio</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- OpenGraph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
 	</head>
 	<body class="bg-slate-950 text-white">
 		<Background>

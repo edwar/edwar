@@ -11,7 +11,7 @@
   "dependencies": {
     "@fontsource/josefin-sans": "^5.2.6",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.9",
+    "astro": "^6.1.3",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "sharp": "^0.34.3",

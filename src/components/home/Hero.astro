@@ -3,25 +3,37 @@ import { Image } from "astro:assets";
 import edwar from "@/assets/edwar.webp";
 import { Icon } from "astro-icon/components";
 import Section from "@/components/ui/Section.astro";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
 ---
 
 <Section class="relative z-20 w-full h-[50rem] flex items-center justify-center gap-10 lg:flex-row flex-col-reverse">
     <div class="flex flex-col items-center justify-center gap-5">
       <p class="font-extrabold lg:text-8xl text-7xl text-center">
-        Hello, I'm Edwar
+        {t('hero.greeting')}
       </p>
-      <p class="lg:text-4xl text-2xl font-extralight">Frontend web Developer</p>
+      <p class="lg:text-4xl text-2xl font-extralight text-center text-fuchsia-400">{t('hero.title')}</p>
+      
+      {/* Bio / About short snippet */}
+      <p class="max-w-2xl text-center text-gray-400 mt-2 mb-4 text-lg">
+        {lang === 'es' ? 'Apasionado por crear experiencias web hermosas y altamente funcionales utilizando las mejores tecnologías modernas.' : 'Passionate about building beautiful and highly functional web experiences using the best modern technologies.'}
+      </p>
+
       <a
-        href="https://wa.me/573175227672?text=Hola"
+        href={`https://wa.me/573175227672?text=${whatsappText}`}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={t('hero.contact')}
         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-800 hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer"
       >
         <div
           class="relative flex items-center justify-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-transparent"
         >
           <Icon name="logos:whatsapp-icon" width="18" height="18" />
-          Contact me
+          {t('hero.contact')}
         </div>
       </a>
     </div>
