@@ -135,7 +135,7 @@ const projects = [
   id="projects"
   class="flex flex-col w-full gap-5 items-center justify-center pt-24 scroll-mt-20"
 >
-  <h2 class="text-4xl font-extrabold flex gap-2">
+  <h2 class="text-4xl font-extrabold flex gap-2 reveal">
     {t("projects.title")}
     <Icon name="mdi:fire" class="text-fuchsia-600 animate-pulse" />
   </h2>
@@ -149,7 +149,7 @@ const projects = [
           title={item.name}
           description={item.description}
           link={item.link}
-          class={index === 3 || index === 6 ? "md:col-span-2" : ""}
+          class={`reveal reveal-delay-${((index % 3) + 1) * 100} ${index === 3 || index === 6 ? "md:col-span-2" : ""}`}
         />
       ))
     }

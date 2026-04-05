@@ -33,7 +33,7 @@ export const cv_en = {
       },
       {
         network: "Web",
-        username: "edwaramayadiaz",
+        username: "edwar",
         url: "https://edwaramaya.com/",
       },
     ],

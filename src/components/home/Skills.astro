@@ -46,7 +46,7 @@ const skillCategories = [
 
 <Section id="skills" class="py-20 scroll-mt-20">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500">
+    <h2 class="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500 reveal">
       {t('skills.title')}
     </h2>
     
@@ -54,12 +54,12 @@ const skillCategories = [
       {
         skillCategories.map((category) => (
           <div>
-            <h3 class="text-2xl font-semibold mb-6 border-b border-gray-800 pb-2 inline-block text-gray-300">{category.title}</h3>
+            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-200 dark:border-gray-800 pb-2 inline-block text-slate-600 dark:text-gray-300 reveal transition-colors duration-500">{category.title}</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {
-                category.skills.map((skill) => (
+                category.skills.map((skill, idx) => (
                   <div 
-                    class="group relative p-6 bg-slate-500/50 rounded-2xl backdrop-blur-sm border border-gray-700/50 hover:border-fuchsia-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-fuchsia-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-3"
+                    class={`group relative p-6 bg-slate-100/50 dark:bg-slate-500/50 rounded-2xl backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 hover:border-fuchsia-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-fuchsia-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-3 reveal reveal-delay-${((idx % 5) + 1) * 100}`}
                   >
                     <div class="w-16 h-16 flex items-center justify-center">
                       <Icon 
@@ -69,7 +69,7 @@ const skillCategories = [
                         class="group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
-                    <span class="text-lg font-medium text-gray-200 group-hover:text-white transition-colors">
+                    <span class="text-lg font-medium text-slate-700 dark:text-gray-200 group-hover:text-fuchsia-600 dark:group-hover:text-white transition-colors duration-500">
                       {skill.name}
                     </span>
                     

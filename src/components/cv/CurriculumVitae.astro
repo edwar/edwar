@@ -48,12 +48,14 @@ const formatDate = (dateString: string | undefined): string => {
 };
 ---
 
-<main class="max-w-4xl mx-auto p-6 font-sans text-gray-800 bg-white">
+<main
+  class="max-w-4xl mx-auto p-6 font-sans text-gray-800 bg-transparent transition-colors duration-300 dark:text-gray-100"
+>
   <div class="flex justify-between items-center mb-6">
     <!-- Back Button -->
     <a
-      href="/"
-      class="flex items-center text-slate-600 hover:text-slate-800 hover:font-bold hover:scale-105 transition-all duration-200 cursor-pointer print:hidden"
+      href={lang === "es" ? "/es/" : "/"}
+      class="flex items-center text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:font-bold hover:scale-105 transition-all duration-200 cursor-pointer print:hidden"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -70,14 +72,92 @@ const formatDate = (dateString: string | undefined): string => {
     </a>
 
     <div class="flex items-center gap-2">
+      <!-- Dark mode toggle -->
+      <button
+        id="theme-toggle"
+        class="flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-yellow-400 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors border border-gray-300 dark:border-slate-700 print:hidden"
+        title={t("cv.theme_light")}
+      >
+        <svg
+          id="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 hidden dark:block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          ></path>
+        </svg>
+        <svg
+          id="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 block dark:hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Share button -->
+      <button
+        id="share-button"
+        class="flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-gray-100 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors border border-gray-300 dark:border-slate-700 print:hidden relative"
+        title={t("cv.share_profile")}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+          ></path>
+        </svg>
+        <!-- Success toast inside button (small) -->
+        <span
+          id="copy-toast"
+          class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap"
+        >
+          {t("cv.copied")}
+        </span>
+      </button>
+
       <!-- Print button -->
       <button
         onclick="window.print()"
         class="flex items-center gap-1 text-xs font-bold px-3 py-1.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors print:hidden"
         title={t("cv.print")}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+          ></path>
         </svg>
         {t("cv.print")}
       </button>
@@ -85,7 +165,7 @@ const formatDate = (dateString: string | undefined): string => {
       <!-- Lang switcher -->
       <a
         href={lang === "es" ? "/cv" : "/es/cv"}
-        class="text-xs font-bold px-3 py-1.5 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 hover:text-blue-600 transition-colors border border-gray-300 print:hidden"
+        class="text-xs font-bold px-3 py-1.5 bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-gray-100 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors border border-gray-300 dark:border-slate-700 print:hidden"
       >
         {lang === "es" ? "EN" : "ES"}
       </a>
@@ -98,29 +178,48 @@ const formatDate = (dateString: string | undefined): string => {
       class="flex flex-col md:flex-row print:flex-row justify-between items-start md:items-center print:items-start gap-4"
     >
       <div>
-        <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+        <h1
+          class="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+        >
           {resumeData.basics.name}
         </h1>
-        <p class="text-xl font-medium text-blue-600 mt-1">{resumeData.basics.label}</p>
+        <p class="text-xl font-medium text-blue-600 dark:text-blue-400 mt-1">
+          {resumeData.basics.label}
+        </p>
       </div>
-      <div class="text-sm text-gray-600 flex flex-col gap-1 md:text-right print:text-right">
+      <div
+        class="text-sm text-gray-600 dark:text-gray-400 flex flex-col gap-1 md:text-right print:text-right"
+      >
         <p class="flex justify-start md:justify-end print:justify-end">
-          {resumeData.basics.url && (
-            <>
-              <a href={resumeData.basics.url} target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">
-                {resumeData.basics.url.replace(/^https?:\/\//, '')}
-              </a>
-              <span class="mx-1 hidden md:inline print:inline">•</span>
-            </>
-          )}
+          {
+            resumeData.basics.url && (
+              <>
+                <a
+                  href={resumeData.basics.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-blue-600 transition-colors"
+                >
+                  {resumeData.basics.url.replace(/^https?:\/\//, "")}
+                </a>
+                <span class="mx-1 hidden md:inline print:inline">•</span>
+              </>
+            )
+          }
           {resumeData.basics.location.city}, {resumeData.basics.location.region}
         </p>
         <p class="flex justify-start md:justify-end print:justify-end">
-          <a href={`mailto:${resumeData.basics.email}`} class="hover:text-blue-600 transition-colors">{resumeData.basics.email}</a>
+          <a
+            href={`mailto:${resumeData.basics.email}`}
+            class="hover:text-blue-600 transition-colors"
+            >{resumeData.basics.email}</a
+          >
           <span class="mx-1 hidden md:inline print:inline">•</span>
           {resumeData.basics.phone}
         </p>
-        <div class="mt-1 flex flex-wrap gap-x-3 gap-y-1 justify-start md:justify-end print:flex-col print:items-end print:gap-0">
+        <div
+          class="mt-1 flex flex-wrap gap-x-3 gap-y-1 justify-start md:justify-end print:flex-col print:items-end print:gap-0"
+        >
           {
             resumeData.basics.profiles.map((profile) => (
               <a
@@ -131,7 +230,7 @@ const formatDate = (dateString: string | undefined): string => {
               >
                 <span class="print:hidden">{profile.network}</span>
                 <span class="hidden print:inline text-sm font-normal text-blue-700">
-                  {profile.url.replace(/^https?:\/\//, '')}
+                  {profile.url.replace(/^https?:\/\//, "")}
                 </span>
               </a>
             ))
@@ -139,12 +238,18 @@ const formatDate = (dateString: string | undefined): string => {
         </div>
       </div>
     </div>
-    <p class="mt-6 text-gray-700 leading-relaxed text-justify max-w-3xl">{resumeData.basics.summary}</p>
+    <p
+      class="mt-6 text-gray-700 dark:text-gray-300 leading-relaxed text-justify max-w-3xl"
+    >
+      {resumeData.basics.summary}
+    </p>
   </header>
 
   <!-- Experience Section -->
   <Section>
-    <h2 class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900">
+    <h2
+      class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900 dark:text-white dark:border-slate-800"
+    >
       {t("cv.work_experience")}
     </h2>
     <div class="space-y-8">
@@ -152,17 +257,21 @@ const formatDate = (dateString: string | undefined): string => {
         resumeData.work.map((job) => (
           <div class="group">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-1">
-              <h3 class="text-xl font-bold text-gray-800">{job.position}</h3>
-              <div class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full mt-2 md:mt-0 print:border print:border-blue-200">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">
+                {job.position}
+              </h3>
+              <div class="text-sm font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full mt-2 md:mt-0 print:border print:border-blue-200">
                 {formatDate(job.startDate)} -{" "}
                 {job.endDate ? formatDate(job.endDate) : t("cv.present")}
               </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between text-gray-600 mb-3">
-              <span class="font-semibold text-gray-700">{job.name}</span>
+            <div class="flex flex-col md:flex-row justify-between text-gray-600 dark:text-gray-400 mb-3">
+              <span class="font-semibold text-gray-700 dark:text-gray-200">
+                {job.name}
+              </span>
               <span class="text-sm">{job.location}</span>
             </div>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 ml-1 marker:text-blue-400">
+            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 ml-1 marker:text-blue-400">
               {job.highlights.map((highlight: string) => (
                 <li class="leading-relaxed">{highlight}</li>
               ))}
@@ -175,21 +284,27 @@ const formatDate = (dateString: string | undefined): string => {
 
   <!-- Education Section -->
   <Section class="mt-10">
-    <h2 class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900">{t("cv.education")}</h2>
+    <h2
+      class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900 dark:text-white dark:border-slate-800"
+    >
+      {t("cv.education")}
+    </h2>
     <div class="space-y-6">
       {
         resumeData.education.map((edu) => (
           <div>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-              <h3 class="text-lg font-bold text-gray-800">
+              <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">
                 {edu.studyType} {lang === "es" ? "en" : "in"} {edu.area}
               </h3>
-              <div class="text-sm font-medium text-gray-500 mt-1 md:mt-0">
+              <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mt-1 md:mt-0">
                 {formatDate(edu.startDate)} -{" "}
                 {formatDate(edu.endDate) || t("cv.present")}
               </div>
             </div>
-            <p class="text-gray-600 font-medium mt-1">{edu.institution}</p>
+            <p class="text-gray-600 dark:text-gray-400 font-medium mt-1">
+              {edu.institution}
+            </p>
           </div>
         ))
       }
@@ -198,13 +313,15 @@ const formatDate = (dateString: string | undefined): string => {
 
   <!-- Skills Section -->
   <Section class="mt-10">
-    <h2 class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900">
+    <h2
+      class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900 dark:text-white dark:border-slate-800"
+    >
       {t("cv.technical_skills")}
     </h2>
     <div class="flex flex-wrap gap-2">
       {
         resumeData.skills.map((skill) => (
-          <span class="bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors cursor-default">
+          <span class="bg-slate-100 text-slate-800 border border-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-200 transition-colors cursor-default">
             {skill.name}
           </span>
         ))
@@ -214,31 +331,48 @@ const formatDate = (dateString: string | undefined): string => {
 
   <!-- Projects Section -->
   <Section class="mt-10 mb-8">
-    <h2 class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900">
+    <h2
+      class="text-2xl font-bold mb-6 pb-2 border-b text-gray-900 dark:text-white dark:border-slate-800"
+    >
       {t("cv.featured_projects")}
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {
         resumeData.projects.map((project) => (
-          <div class="border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50/50 flex flex-col justify-between break-inside-avoid">
+          <div class="border border-gray-100 dark:border-slate-800 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50/50 dark:bg-slate-800/50 flex flex-col justify-between break-inside-avoid">
             <div>
               <div class="flex justify-between items-start mb-2">
-                <h3 class="text-lg font-bold text-gray-800">{project.name}</h3>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+                  {project.name}
+                </h3>
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 flex-shrink-0 py-1 rounded text-xs font-semibold transition-colors flex items-center gap-1 print:hidden"
+                    class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 px-2 flex-shrink-0 py-1 rounded text-xs font-semibold transition-colors flex items-center gap-1 print:hidden"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
                     </svg>
                     {t("cv.view_project")}
                   </a>
                 )}
               </div>
-              <p class="text-gray-600 text-sm leading-relaxed">{project.description}</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                {project.description}
+              </p>
             </div>
           </div>
         ))
@@ -260,7 +394,7 @@ const formatDate = (dateString: string | undefined): string => {
     .print\:hidden {
       display: none !important;
     }
-    
+
     .bg-blue-50 {
       background-color: transparent !important;
       border: 1px solid #bfdbfe !important;
@@ -271,6 +405,31 @@ const formatDate = (dateString: string | undefined): string => {
     body {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+      background-color: white !important;
+      color: #1f2937 !important;
+    }
+
+    main {
+      background-color: white !important;
+      color: #1f2937 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #111827 !important;
+    }
+
+    p,
+    span,
+    li {
+      color: #374151 !important;
+    }
+
+    .border-b {
+      border-color: #e5e7eb !important;
     }
 
     /* Ensure links are visible in print */
@@ -280,8 +439,79 @@ const formatDate = (dateString: string | undefined): string => {
     }
 
     /* Add page breaks between major sections */
-    .mt-8 {
+    .mt-8,
+    .mt-10 {
       page-break-inside: avoid;
     }
   }
 </style>
+
+<script is:inline>
+  const themeToggle = document.getElementById("theme-toggle");
+
+  // Set initial theme based on localStorage or system preference
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const theme = getInitialTheme();
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+
+  themeToggle?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  // Share / Copy Link functionality
+  const shareButton = document.getElementById("share-button");
+  const copyToast = document.getElementById("copy-toast");
+
+  shareButton?.addEventListener("click", async () => {
+    const shareData = {
+      title: document.title,
+      text: "Check out this portfolio!",
+      url: window.location.href,
+    };
+
+    try {
+      // Try native share first (Mobile)
+      if (navigator.share && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+      } else {
+        // Fallback to clipboard (Desktop)
+        await navigator.clipboard.writeText(window.location.href);
+
+        // Show success toast
+        copyToast?.classList.remove("opacity-0");
+        copyToast?.classList.add("opacity-100");
+
+        setTimeout(() => {
+          copyToast?.classList.remove("opacity-100");
+          copyToast?.classList.add("opacity-0");
+        }, 2000);
+      }
+    } catch (err) {
+      console.error("Error sharing:", err);
+    }
+  });
+</script>

@@ -32,6 +32,11 @@ export const ui = {
     'cv.view_project': 'View Project',
     'cv.present': 'Present',
     'cv.print': 'Print / Download',
+    'cv.theme_light': 'Light Mode',
+    'cv.theme_dark': 'Dark Mode',
+    'cv.share_profile': 'Share Profile',
+    'cv.copy_link': 'Copy Link',
+    'cv.copied': 'Copied!',
   },
   es: {
     'nav.home': 'Inicio',
@@ -59,5 +64,10 @@ export const ui = {
     'cv.view_project': 'Ver Proyecto',
     'cv.present': 'Presente',
     'cv.print': 'Imprimir / Descargar',
+    'cv.theme_light': 'Modo Claro',
+    'cv.theme_dark': 'Modo Oscuro',
+    'cv.share_profile': 'Compartir Perfil',
+    'cv.copy_link': 'Copiar Enlace',
+    'cv.copied': '¡Copiado!',
   },
 } as const;

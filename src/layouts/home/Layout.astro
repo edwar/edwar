@@ -6,11 +6,13 @@ import { getLangFromUrl } from "@/i18n/utils";
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
 }
 
 const { 
 	title = "Edwar | Portfolio", 
-	description = "Frontend Web Developer Portfolio - Edwar Amaya" 
+	description = "Frontend Web Developer Portfolio - Edwar Amaya",
+	image = "/og-image.png"
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -30,11 +32,56 @@ const lang = getLangFromUrl(Astro.url);
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL(image, Astro.url)} />
 	</head>
-	<body class="bg-slate-950 text-white">
+	<body class="bg-slate-950 text-white transition-colors duration-300">
+		<script is:inline>
+			const getInitialTheme = () => {
+				const savedTheme = localStorage.getItem('theme');
+				if (savedTheme) return savedTheme;
+				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			};
+			const theme = getInitialTheme();
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+				document.documentElement.classList.remove('light');
+			} else {
+				document.documentElement.classList.add('light');
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
 		<Background>
-		<slot />
+			<slot />
 		</Background>
+
+		<script>
+			// Set up Intersection Observer for fade-in animations on scroll
+			document.addEventListener("DOMContentLoaded", () => {
+				const observerOptions = {
+					root: null,
+					rootMargin: '0px',
+					threshold: 0.15
+				};
+
+				const observer = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('active');
+							observer.unobserve(entry.target); // Trigger only once
+						}
+					});
+				}, observerOptions);
+
+				const revealElements = document.querySelectorAll('.reveal');
+				revealElements.forEach((el) => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
 
