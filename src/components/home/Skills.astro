@@ -1,14 +1,14 @@
 ---
 import Section from "@/components/ui/Section.astro";
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const skillCategories = [
   {
-    title: lang === 'es' ? 'Frontend' : 'Frontend',
+    title: lang === "es" ? "Frontend" : "Frontend",
     skills: [
       { name: "React", icon: "logos:react" },
       { name: "Next.js", icon: "logos:nextjs-icon" },
@@ -19,19 +19,19 @@ const skillCategories = [
       { name: "TypeScript", icon: "logos:typescript-icon" },
       { name: "HTML", icon: "logos:html-5" },
       { name: "CSS", icon: "logos:css-3" },
-    ]
+    ],
   },
   {
-    title: lang === 'es' ? 'Backend & Base de Datos' : 'Backend & Data',
+    title: lang === "es" ? "Backend & Base de Datos" : "Backend & Data",
     skills: [
       { name: "PostgreSQL", icon: "logos:postgresql" },
       { name: "Prisma", icon: "logos:prisma" },
       { name: "Firebase", icon: "logos:firebase-icon" },
       { name: "Supabase", icon: "logos:supabase-icon" },
-    ]
+    ],
   },
   {
-    title: lang === 'es' ? 'Herramientas' : 'Tools',
+    title: lang === "es" ? "Herramientas" : "Tools",
     skills: [
       { name: "Git", icon: "logos:git-icon" },
       { name: "GitHub", icon: "logos:github-icon" },
@@ -39,45 +39,55 @@ const skillCategories = [
       { name: "Bitbucket", icon: "logos:bitbucket" },
       { name: "Atlassian", icon: "logos:atlassian" },
       { name: "Vercel", icon: "logos:vercel-icon" },
-    ]
-  }
+    ],
+  },
 ];
 ---
 
 <Section id="skills" class="py-20 scroll-mt-20">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500 reveal">
-      {t('skills.title')}
+    <h2
+      class="text-4xl font-bold flex items-center justify-center gap-2 reveal"
+    >
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500"
+      >
+        {t("skills.title")}
+      </span>
+      <Icon
+        name="mdi:lightning-bolt"
+        class="text-fuchsia-600 animate-pulse shrink-0"
+      />
     </h2>
-    
+
     <div class="flex flex-col gap-12">
       {
         skillCategories.map((category) => (
           <div>
-            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-200 dark:border-gray-800 pb-2 inline-block text-slate-600 dark:text-gray-300 reveal transition-colors duration-500">{category.title}</h3>
+            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-200 dark:border-gray-800 pb-2 inline-block text-slate-600 dark:text-gray-300 reveal transition-colors duration-500">
+              {category.title}
+            </h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {
-                category.skills.map((skill, idx) => (
-                  <div 
-                    class={`group relative p-6 bg-slate-100/50 dark:bg-slate-500/50 rounded-2xl backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 hover:border-fuchsia-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-fuchsia-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-3 reveal reveal-delay-${((idx % 5) + 1) * 100}`}
-                  >
-                    <div class="w-16 h-16 flex items-center justify-center">
-                      <Icon 
-                        name={skill.icon} 
-                        width="100%" 
-                        height="100%" 
-                        class="group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <span class="text-lg font-medium text-slate-700 dark:text-gray-200 group-hover:text-fuchsia-600 dark:group-hover:text-white transition-colors duration-500">
-                      {skill.name}
-                    </span>
-                    
-                    {/* Efecto de brillo al pasar el mouse */}
-                    <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-30 bg-gradient-to-br from-fuchsia-500/20 to-pink-500/20 transition-opacity duration-300 pointer-events-none"></div>
+              {category.skills.map((skill, idx) => (
+                <div
+                  class={`group relative p-6 bg-slate-100/50 dark:bg-slate-500/50 rounded-2xl backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 hover:border-fuchsia-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-fuchsia-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-3 reveal reveal-delay-${((idx % 5) + 1) * 100}`}
+                >
+                  <div class="w-16 h-16 flex items-center justify-center">
+                    <Icon
+                      name={skill.icon}
+                      width="100%"
+                      height="100%"
+                      class="group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
-                ))
-              }
+                  <span class="text-lg font-medium text-slate-700 dark:text-gray-200 group-hover:text-fuchsia-600 dark:group-hover:text-white transition-colors duration-500">
+                    {skill.name}
+                  </span>
+
+                  {/* Efecto de brillo al pasar el mouse */}
+                  <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-30 bg-gradient-to-br from-fuchsia-500/20 to-pink-500/20 transition-opacity duration-300 pointer-events-none" />
+                </div>
+              ))}
             </div>
           </div>
         ))

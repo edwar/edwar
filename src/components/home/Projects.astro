@@ -135,9 +135,13 @@ const projects = [
   id="projects"
   class="flex flex-col w-full gap-5 items-center justify-center pt-24 scroll-mt-20"
 >
-  <h2 class="text-4xl font-extrabold flex gap-2 reveal">
-    {t("projects.title")}
-    <Icon name="mdi:fire" class="text-fuchsia-600 animate-pulse" />
+  <h2 class="text-4xl font-bold flex items-center justify-center gap-2 reveal">
+    <span
+      class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500"
+    >
+      {t("projects.title")}
+    </span>
+    <Icon name="mdi:fire" class="text-fuchsia-600 animate-pulse shrink-0" />
   </h2>
   <BentoGrid class="p-5">
     {
