@@ -27,6 +27,11 @@ const lang = getLangFromUrl(Astro.url);
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+		
 		<!-- OpenGraph -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />

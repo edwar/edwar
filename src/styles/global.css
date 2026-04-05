@@ -21,13 +21,11 @@
 @variant dark (&:where(.dark, .dark *));
 
 
-@import '@fontsource/josefin-sans/400.css';
-@import '@fontsource/josefin-sans/600.css';
-@import '@fontsource/josefin-sans/700.css';
+/* Outfit is now imported in the Layout files via Google Fonts */
 
 @layer base {
   html {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 }
 
