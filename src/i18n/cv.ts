@@ -24,7 +24,7 @@ export const cv_en = {
       {
         network: "X",
         username: "ed_amaya_diaz",
-        url: "https://x.com/https://twitter.com/ed_amaya_diaz",
+        url: "https://x.com/ed_amaya_diaz",
       },
       {
         network: "GitHub",
