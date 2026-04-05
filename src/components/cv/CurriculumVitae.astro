@@ -322,10 +322,10 @@ const formatDate = (dateString: string | undefined): string => {
     >
       {t("cv.technical_skills")}
     </h2>
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap gap-2 technical-skills">
       {
         resumeData.skills.map((skill) => (
-          <span class="bg-slate-100 text-slate-800 border border-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-200 transition-colors cursor-default">
+          <span class="bg-slate-100 text-slate-800 border border-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-200 transition-colors cursor-default print:bg-white print:text-gray-700 print:border-gray-200 print:py-0.5 print:px-2">
             {skill.name}
           </span>
         ))
@@ -340,10 +340,10 @@ const formatDate = (dateString: string | undefined): string => {
     >
       {t("cv.featured_projects")}
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 featured-projects">
       {
         resumeData.projects.map((project) => (
-          <div class="border border-gray-100 dark:border-slate-800 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50/50 dark:bg-slate-800/50 flex flex-col justify-between break-inside-avoid">
+          <div class="border border-gray-100 dark:border-slate-800 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50/50 dark:bg-slate-800/50 flex flex-col justify-between break-inside-avoid print:bg-white print:border-gray-200 print:shadow-none">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <h3 class="text-lg font-bold text-gray-800 dark:text-white">
@@ -446,6 +446,19 @@ const formatDate = (dateString: string | undefined): string => {
     .mt-8,
     .mt-10 {
       page-break-inside: avoid;
+    }
+
+    /* Ensure specific skills rendering in print */
+    .technical-skills span {
+      background-color: white !important;
+      color: #374151 !important;
+      border: 1px solid #e5e7eb !important;
+    }
+
+    .featured-projects div {
+      background-color: white !important;
+      color: #374151 !important;
+      border: 1px solid #e5e7eb !important;
     }
   }
 </style>
