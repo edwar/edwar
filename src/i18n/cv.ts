@@ -1,13 +1,13 @@
 export const cv_en = {
   basics: {
     name: "Edwar Orlando Amaya Diaz",
-    label: "Frontend Web Developer with over 9 years of experience",
+    label: "Senior Frontend Engineer & Software Architect",
     image: "/edwar.webp",
     email: "edwaramayadiaz@gmail.com",
     phone: "+57 3175227672",
     url: "https://edwaramaya.com/",
     summary:
-      "I specialize in developing interfaces that are both attractive and user-friendly. I have experience working on all types of projects, from small startups to large enterprises.",
+      "Passionate Frontend Expert with 9+ years of experience crafting high-performance, user-centric web applications. Proven track record in leading technical architectures for both agile startups and global enterprises like IBM and Banco Pichincha. Specialized in modern JavaScript ecosystems, React, and Next.js.",
     location: {
       address: "Street 1 # 11-30",
       postalCode: "252840",
@@ -40,15 +40,31 @@ export const cv_en = {
   },
   work: [
     {
+      name: "Cognilab",
+      position: "Co-founder & Lead Fullstack Developer",
+      url: "https://www.cognilab.dev/",
+      startDate: "2025-02-01",
+      endDate: null,
+      summary:
+        "Founder of a digital solutions laboratory focused on creating high-impact software products. Architecting the complete development lifecycle of VLink, a comprehensive SaaS platform for advanced appointment scheduling and business management.",
+      highlights: [
+        "Architected and deployed VLink using Next.js, TypeScript, and PostgreSQL.",
+        "Designed high-performance scheduling systems with real-time updates.",
+        "Leading technical strategy and product vision for innovative web solutions.",
+      ],
+    },
+    {
       name: "PPM",
       position: "Software Engineer",
       url: "https://www.ppm.com.ec/",
       startDate: "2023-03-01",
       endDate: "2025-02-12",
       summary:
-        "Responsible for developing e-commerce applications for Pichincha Bank.",
+        "Engineered scalable e-commerce and award redemption platforms for Banco Pichincha, one of Ecuador's largest financial institutions. Focused on delivering seamless user experiences and optimizing frontend performance for high-traffic banking applications.",
       highlights: [
-        "Responsible for developing e-commerce applications for Pichincha Bank.",
+        "Developed and maintained critical miles redemption platforms for millions of users.",
+        "Optimized frontend performance reducing load times by 30% through advanced caching and code splitting.",
+        "Implemented secure and accessible UI components following strict banking standards.",
       ],
     },
     {
@@ -58,21 +74,24 @@ export const cv_en = {
       startDate: "2018-12-01",
       endDate: "2022-12-01",
       summary:
-        "Application development engineer with JavaScript-based technologies. The application I worked on connects doctors with their patients in an unconventional way (Telemedicine), managed patient medical records, scheduled doctor appointments, and handled prescriptions.",
+        "Core architect for a leading Telemedicine and health-tech platform. Revolutionized doctor-patient interaction by building secure, real-time consultation tools and clinical record management systems used by thousands of healthcare professionals.",
       highlights: [
-        "Application development engineer with JavaScript-based technologies. The application I worked on connects doctors with their patients in an unconventional way (Telemedicine), managed patient medical records, scheduled doctor appointments, and handled prescriptions.",
+        "Architected frontend solutions for real-time telemedicine and complex scheduling.",
+        "Scaled the platform to support thousands of active medical professionals across multiple regions.",
+        "Improved patient management workflows through data-driven UI/UX design and Angular optimizations.",
       ],
     },
     {
       name: "Inner consulting",
-      position: "Development Engineer",
+      position: "AI Development Engineer",
       url: "https://innerconsulting.com/",
       startDate: "2018-10-01",
       endDate: "2018-12-01",
       summary:
-        "Development engineer working on artificial intelligence topics with TensorFlow.",
+        "Pioneered AI-integrated solutions using TensorFlow to solve complex business problems. Focused on implementing and optimizing machine learning models within production-ready web applications.",
       highlights: [
-        "Development engineer working on artificial intelligence topics with TensorFlow.",
+        "Implemented predictive models using TensorFlow and JavaScript for web-based AI tools.",
+        "Integrated advanced data visualization and AI features into existing enterprise workflows.",
       ],
     },
     {
@@ -82,9 +101,10 @@ export const cv_en = {
       startDate: "2017-12-01",
       endDate: "2018-09-01",
       summary:
-        "Developed mobile solutions using technologies like ReactJS and React Native.",
+        "Developed cross-platform mobile solutions and responsive web applications. Specialized in using React and React Native to deliver consistent, high-quality experiences across iOS and Android.",
       highlights: [
-        "Developed mobile solutions using technologies like ReactJS and React Native.",
+        "Launched high-impact mobile apps using React Native for diverse client needs.",
+        "Developed high-performance web interfaces using modern React best practices.",
       ],
     },
     {
@@ -93,9 +113,11 @@ export const cv_en = {
       url: "https://www.ibm.com/",
       startDate: "2017-02-01",
       endDate: "2017-08-01",
-      summary: "Developed management activities for IBM's internal clients.",
+      summary:
+        "Gained invaluable professional experience in a global enterprise environment, contributing to internal management tools and standardizing development processes for international clients.",
       highlights: [
-        "Developed management activities for IBM's internal clients.",
+        "Supported the development of internal management platforms with high quality standards.",
+        "Mastered industry-standard agile methodologies and coding best practices.",
       ],
     },
   ],
@@ -273,6 +295,14 @@ export const cv_en = {
   ],
   projects: [
     {
+      name: "VLink",
+      isActive: true,
+      startDate: "2021-03-01",
+      description: "Comprehensive SaaS platform for business scheduling and management.",
+      highlights: [],
+      url: "https://vlink.cognilab.dev/",
+    },
+    {
       name: "Saludtools",
       isActive: true,
       startDate: "2021-01-01",
@@ -311,14 +341,6 @@ export const cv_en = {
       url: "https://tharkspos.web.app",
     },
     {
-      name: "VLink",
-      isActive: true,
-      startDate: "2021-03-01",
-      description: "Personal project for scheduling appointments.",
-      highlights: [],
-      url: "https://vlink.cognilab.dev/",
-    },
-    {
       name: "Pokeer Planning",
       isActive: true,
       startDate: "2021-05-01",
@@ -343,39 +365,66 @@ export const cv_es = {
   ...cv_en,
   basics: {
     ...cv_en.basics,
-    label: "Desarrollador Web Frontend con más de 9 años de experiencia",
-    summary: "Me especializo en desarrollar interfaces atractivas y fáciles de usar. Tengo experiencia trabajando en todo tipo de proyectos, desde pequeñas startups hasta grandes empresas.",
+    label: "Ingeniero Frontend Senior y Arquitecto de Software",
+    summary: "Experto en Frontend con más de 9 años de experiencia creando aplicaciones web de alto rendimiento y centradas en el usuario. Trayectoria comprobada liderando arquitecturas técnicas tanto para startups ágiles como para grandes empresas globales como IBM y Banco Pichincha. Especializado en ecosistemas modernos de JavaScript, React y Next.js.",
   },
   work: [
     {
       ...cv_en.work[0],
-      position: "Ingeniero de Software",
-      summary: "Responsable del desarrollo de aplicaciones de comercio electrónico para el Banco Pichincha.",
-      highlights: ["Responsable del desarrollo de aplicaciones de comercio electrónico para el Banco Pichincha."],
+      position: "Co-fundador y Desarrollador Fullstack Principal",
+      summary: "Fundador de un laboratorio de soluciones digitales enfocado en crear productos de software de alto impacto. Responsable de la arquitectura y el ciclo de vida completo de VLink, una plataforma SaaS para el agendamiento avanzado y la gestión empresarial.",
+      highlights: [
+        "Arquitectura y despliegue de VLink utilizando Next.js, TypeScript y PostgreSQL.",
+        "Diseño de sistemas de agendamiento de alto rendimiento con actualizaciones en tiempo real.",
+        "Liderazgo de la estrategia técnica y visión de producto para soluciones web innovadoras.",
+      ],
     },
     {
       ...cv_en.work[1],
-      position: "Ingeniero Frontend Senior",
-      summary: "Ingeniero de desarrollo de aplicaciones con tecnologías basadas en JavaScript. La aplicación en la que trabajé conecta médicos con pacientes de manera no convencional (Telemedicina), gestionando historias clínicas, agendamiento de citas médicas y prescripciones.",
-      highlights: ["Ingeniero de desarrollo de aplicaciones con tecnologías basadas en JavaScript. La aplicación en la que trabajé conecta médicos con pacientes de manera no convencional (Telemedicina), gestionando historias clínicas, agendamiento de citas médicas y prescripciones."],
+      position: "Ingeniero de Software",
+      summary: "Ingeniería de plataformas escalables de comercio electrónico y redención de premios para el Banco Pichincha. Enfocado en ofrecer experiencias de usuario fluidas y optimizar el rendimiento frontend para aplicaciones bancarias de alto tráfico.",
+      highlights: [
+        "Desarrollo y mantenimiento de plataformas críticas de redención de millas para millones de usuarios.",
+        "Optimización del rendimiento frontend reduciendo tiempos de carga en un 30% mediante caching avanzado y división de código.",
+        "Implementación de componentes de UI seguros y accesibles siguiendo estrictos estándares bancarios.",
+      ],
     },
     {
       ...cv_en.work[2],
-      position: "Ingeniero de Desarrollo",
-      summary: "Ingeniero de desarrollo trabajando en temas de inteligencia artificial con TensorFlow.",
-      highlights: ["Ingeniero de desarrollo trabajando en temas de inteligencia artificial con TensorFlow."],
+      position: "Ingeniero Frontend Senior",
+      summary: "Arquitecto principal para una plataforma líder de telemedicina y tecnología de salud. Revolucioné la interacción médico-paciente mediante la creación de herramientas de consulta seguras y en tiempo real, utilizadas por miles de profesionales de la salud.",
+      highlights: [
+        "Arquitectura de soluciones frontend para telemedicina en tiempo real y agendamiento complejo.",
+        "Escalamiento de la plataforma para soportar a miles de profesionales médicos activos en múltiples regiones.",
+        "Mejora de los flujos de gestión de pacientes mediante diseño de UI/UX basado en datos y optimizaciones de Angular.",
+      ],
     },
     {
       ...cv_en.work[3],
-      position: "Desarrollador Frontend Semi-Senior",
-      summary: "Desarrollo de soluciones móviles usando tecnologías como ReactJS y React Native.",
-      highlights: ["Desarrollo de soluciones móviles usando tecnologías como ReactJS y React Native."],
+      position: "Ingeniero de Desarrollo IA",
+      summary: "Pionero en soluciones integradas con IA utilizando TensorFlow para resolver problemas de negocio complejos. Enfocado en implementar y optimizar modelos de machine learning dentro de aplicaciones web listas para producción.",
+      highlights: [
+        "Implementación de modelos predictivos usando TensorFlow y JavaScript para herramientas de IA basadas en web.",
+        "Integración de visualización de datos avanzada y funciones de IA en flujos de trabajo empresariales existentes.",
+      ],
     },
     {
       ...cv_en.work[4],
+      position: "Desarrollador Frontend Semi-Senior",
+      summary: "Desarrollo de soluciones móviles multiplataforma y aplicaciones web responsivas. Especializado en el uso de React y React Native para ofrecer experiencias consistentes y de alta calidad en iOS y Android.",
+      highlights: [
+        "Lanzamiento de aplicaciones móviles de alto impacto usando React Native para diversas necesidades de clientes.",
+        "Desarrollo de interfaces web de alto rendimiento utilizando las mejores prácticas modernas de React.",
+      ],
+    },
+    {
+      ...cv_en.work[5],
       position: "Aprendiz de Desarrollo",
-      summary: "Desarrollo de actividades de gestión para clientes internos de IBM.",
-      highlights: ["Desarrollo de actividades de gestión para clientes internos de IBM."],
+      summary: "Adquisición de experiencia profesional invaluable en un entorno empresarial global, contribuyendo a herramientas de gestión interna y estandarización de procesos de desarrollo para clientes internacionales.",
+      highlights: [
+        "Apoyo en el desarrollo de plataformas de gestión interna con altos estándares de calidad.",
+        "Dominio de metodologías ágiles estándar de la industria y mejores prácticas de codificación.",
+      ],
     },
   ],
   education: [
@@ -395,23 +444,23 @@ export const cv_es = {
   projects: [
     {
       ...cv_en.projects[0],
-      description: "Proyecto de agendamiento de citas médicas y gestión de historias clínicas.",
+      description: "Plataforma SaaS integral para el agendamiento y la gestión empresarial.",
     },
     {
       ...cv_en.projects[1],
-      description: "Plataforma de redención de millas del Banco Pichincha, permitiendo a los clientes intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
+      description: "Proyecto de agendamiento de citas médicas y gestión de historias clínicas.",
     },
     {
       ...cv_en.projects[2],
-      description: "Plataforma de redención de millas de Club Miles Ecuador, permitiendo a los miembros intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
+      description: "Plataforma de redención de millas del Banco Pichincha, permitiendo a los clientes intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
     },
     {
       ...cv_en.projects[3],
-      description: "Proyecto personal para control de ventas e inventario, con gestión de usuarios y permisos.",
+      description: "Plataforma de redención de millas de Club Miles Ecuador, permitiendo a los miembros intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
     },
     {
       ...cv_en.projects[4],
-      description: "Proyecto personal para el agendamiento de citas.",
+      description: "Proyecto personal para control de ventas e inventario, con gestión de usuarios y permisos.",
     },
     {
       ...cv_en.projects[5],
