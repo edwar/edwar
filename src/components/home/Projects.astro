@@ -6,10 +6,11 @@ import { Icon } from "astro-icon/components";
 import SaludTools from "@/assets/web-1.webp";
 import PichinchaMiles from "@/assets/web-2.webp";
 import ClubMiles from "@/assets/web-3.webp";
-import Tharks from "@/assets/web-4.webp";
 import VLink from "@/assets/web-5.webp";
-import PokeerPlanning from "@/assets/web-6.webp";
-import RentalCars from "@/assets/web-7.webp";
+import Hermes from "@/assets/web-hermes.webp";
+import Loki from "@/assets/web-loki.webp";
+import Apolo from "@/assets/web-apolo.webp";
+import Perseus from "@/assets/web-perseus.webp";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -80,39 +81,8 @@ const projects = [
     link: "https://vlink.cognilab.dev/",
   },
   {
-    name: "Tharks",
-    image: Tharks,
-    icons: [
-      "logos:react",
-      "logos:stylus",
-      "logos:html-5",
-      "logos:javascript",
-      "logos:firebase-icon",
-      "logos:github-icon",
-      "logos:supabase-icon",
-      "logos:postgresql",
-    ],
-    description: t("projects.desc.tharks"),
-    link: "https://tharkspos.web.app",
-  },
-  {
-    name: "Pokeer Planning",
-    image: PokeerPlanning,
-    icons: [
-      "logos:nextjs-icon",
-      "logos:tailwindcss-icon",
-      "logos:html-5",
-      "logos:javascript",
-      "logos:github-icon",
-      "logos:firebase-icon",
-      "logos:vercel-icon",
-    ],
-    description: t("projects.desc.pokeer"),
-    link: "https://pokeer-planning.vercel.app/",
-  },
-  {
-    name: "Rental Cars",
-    image: RentalCars,
+    name: "Hermes",
+    image: Hermes,
     icons: [
       "logos:nextjs-icon",
       "logos:tailwindcss-icon",
@@ -120,13 +90,58 @@ const projects = [
       "logos:javascript",
       "logos:typescript-icon",
       "logos:github-icon",
-      "logos:firebase-icon",
-      "logos:prisma",
       "logos:postgresql",
       "logos:vercel-icon",
     ],
-    description: t("projects.desc.rentalcars"),
-    link: "https://rental-cars-seven.vercel.app/",
+    description: t("projects.desc.hermes"),
+    link: "https://hermes.cognilab.dev/",
+  },
+  {
+    name: "Loki",
+    image: Loki,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:javascript",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:postgresql",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.loki"),
+    link: "https://loki.cognilab.dev/",
+  },
+  {
+    name: "Apolo",
+    image: Apolo,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:javascript",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.apolo"),
+    link: "https://apolo.cognilab.dev/",
+  },
+  {
+    name: "Perseus",
+    image: Perseus,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:javascript",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:postgresql",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.perseus"),
+    link: "https://perseus.cognilab.dev/",
   },
 ];
 ---
@@ -153,7 +168,7 @@ const projects = [
           title={item.name}
           description={item.description}
           link={item.link}
-          class={`reveal reveal-delay-${((index % 3) + 1) * 100} ${index === 3 || index === 6 ? "md:col-span-2" : ""}`}
+          class={`reveal reveal-delay-${((index % 3) + 1) * 100} ${index === 3 ? "md:col-span-2" : ""}`}
         />
       ))
     }

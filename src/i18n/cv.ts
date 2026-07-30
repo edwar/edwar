@@ -332,31 +332,40 @@ export const cv_en = {
       url: "https://clubmiles.com.ec/",
     },
     {
-      name: "Tharks",
+      name: "Hermes",
       isActive: true,
-      startDate: "2020-06-01",
+      startDate: "2025-01-01",
       description:
-        "Personal project for sales and inventory control, with user and permissions management.",
+        "Modern POS system with electronic invoicing, inventory management, and reports for Colombian businesses.",
       highlights: [],
-      url: "https://tharkspos.web.app",
+      url: "https://hermes.cognilab.dev/",
     },
     {
-      name: "Pokeer Planning",
+      name: "Loki",
       isActive: true,
-      startDate: "2021-05-01",
+      startDate: "2025-01-01",
       description:
-        "Agile planning poker application for remote teams to estimate story points.",
+        "Business management platform for entrepreneurs with sales, inventory, expenses, and analytics.",
       highlights: [],
-      url: "https://pokeer-planning.vercel.app/",
+      url: "https://loki.cognilab.dev/",
     },
     {
-      name: "Rental Cars",
+      name: "Apolo",
       isActive: true,
-      startDate: "2020-09-01",
+      startDate: "2025-01-01",
       description:
-        "Car rental platform with real-time availability and booking system.",
+        "Intelligent vectorization tool that converts images to SVG with background removal and color editing.",
       highlights: [],
-      url: "https://rental-cars-seven.vercel.app/",
+      url: "https://apolo.cognilab.dev/",
+    },
+    {
+      name: "Perseus",
+      isActive: true,
+      startDate: "2025-01-01",
+      description:
+        "Personal finance management app with transactions, debts, savings, budgets, and receipt scanning.",
+      highlights: [],
+      url: "https://perseus.cognilab.dev/",
     },
   ],
 } as const;
