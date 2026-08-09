@@ -234,7 +234,7 @@ const projects = [
     </span>
     <Icon name="mdi:fire" class="text-fuchsia-600 animate-pulse shrink-0" />
   </h2>
-  <BentoGrid class="p-5" data-gsap="stagger">
+  <BentoGrid class="p-5">
     {
       projects.map((item, index) => (
         <BentoGridItem
@@ -245,6 +245,7 @@ const projects = [
           description={item.description}
           link={item.link}
           class={spanClasses[index] || ""}
+          data-gsap="reveal"
         />
       ))
     }

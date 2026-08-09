@@ -2,13 +2,14 @@
 import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-const { class: className, image, icons, title, description, link } = Astro.props;
+const { class: className, image, icons, title, description, link, ...rest } = Astro.props;
 ---
 <div
   class={cn(
     "group/bento flex flex-col rounded-2xl border border-slate-200/60 dark:border-white/10 bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm shadow-none transition-all duration-500 hover:shadow-xl hover:shadow-fuchsia-500/5 hover:border-fuchsia-500/20 dark:hover:border-fuchsia-500/20 overflow-hidden",
     className,
   )}
+  {...rest}
 >
   {image && (
     <div class="relative h-48 overflow-hidden">
