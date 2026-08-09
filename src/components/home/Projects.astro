@@ -20,6 +20,15 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Bento layout: varied spans for visual rhythm
+const spanClasses = [
+  "", "", "",           // Row 1: Saludtools, Pichincha, ClubMiles
+  "md:col-span-2", "", // Row 2: VLink(featured), Hermes
+  "", "md:col-span-2", // Row 3: Loki, Apolo(featured)
+  "", "", "",           // Row 4: Perseus, Thor, Atenea
+  "md:col-span-2", "", // Row 5: Nabu(featured), CogniLab
+];
+
 const projects = [
   {
     name: "Saludtools",
@@ -235,7 +244,7 @@ const projects = [
           title={item.name}
           description={item.description}
           link={item.link}
-          class={index === 3 ? "md:col-span-2" : ""}
+          class={spanClasses[index] || ""}
         />
       ))
     }
