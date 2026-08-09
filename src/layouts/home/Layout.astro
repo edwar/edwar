@@ -73,17 +73,18 @@ const lang = getLangFromUrl(Astro.url);
 			import { gsap } from "gsap";
 			import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-			gsap.registerPlugin(ScrollTrigger);
+			document.addEventListener("DOMContentLoaded", () => {
+				gsap.registerPlugin(ScrollTrigger);
 
-			const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				if (prefersReducedMotion) return;
 
-			if (!prefersReducedMotion) {
 				gsap.defaults({ ease: "power3.out", duration: 0.7 });
 
-				// Reveal on scroll [data-gsap="reveal"]
+				// Reveal on scroll
 				gsap.utils.toArray<HTMLElement>("[data-gsap='reveal']").forEach((el) => {
 					gsap.fromTo(el,
-						{ y: 35, opacity: 0 },
+						{ y: 30, opacity: 0 },
 						{
 							y: 0, opacity: 1, duration: 0.8,
 							scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
@@ -91,11 +92,11 @@ const lang = getLangFromUrl(Astro.url);
 					);
 				});
 
-				// Stagger groups [data-gsap="stagger"]
+				// Stagger groups
 				gsap.utils.toArray<HTMLElement>("[data-gsap='stagger']").forEach((group) => {
 					const children = Array.from(group.children) as HTMLElement[];
 					gsap.fromTo(children,
-						{ y: 25, opacity: 0 },
+						{ y: 20, opacity: 0 },
 						{
 							y: 0, opacity: 1, duration: 0.5, stagger: 0.06,
 							scrollTrigger: { trigger: group, start: "top 88%", toggleActions: "play none none none" },
@@ -103,18 +104,18 @@ const lang = getLangFromUrl(Astro.url);
 					);
 				});
 
-				// Scale-in [data-gsap="scale"]
+				// Scale-in
 				gsap.utils.toArray<HTMLElement>("[data-gsap='scale']").forEach((el) => {
 					gsap.fromTo(el,
-						{ scale: 0.93, opacity: 0 },
+						{ scale: 0.92, opacity: 0 },
 						{
-							scale: 1, opacity: 1, duration: 0.7,
+							scale: 1, opacity: 1, duration: 0.8,
 							scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
 						}
 					);
 				});
 
-				// Parallax [data-gsap="parallax"]
+				// Parallax
 				gsap.utils.toArray<HTMLElement>("[data-gsap='parallax']").forEach((el) => {
 					const speed = parseFloat(el.dataset.speed || "0.3");
 					gsap.to(el, {
@@ -122,19 +123,19 @@ const lang = getLangFromUrl(Astro.url);
 						scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1 },
 					});
 				});
-			}
 
-			// Safety fallback: ensure all animated elements visible after 3s
-			setTimeout(() => {
-				document.querySelectorAll("[data-gsap]").forEach((el) => {
-					(el as HTMLElement).style.opacity = "1";
-					(el as HTMLElement).style.transform = "none";
-				});
-				document.querySelectorAll("[data-gsap='stagger'] > *").forEach((el) => {
-					(el as HTMLElement).style.opacity = "1";
-					(el as HTMLElement).style.transform = "none";
-				});
-			}, 3000);
+				// Safety fallback
+				setTimeout(() => {
+					document.querySelectorAll("[data-gsap]").forEach((el) => {
+						(el as HTMLElement).style.opacity = "1";
+						(el as HTMLElement).style.transform = "none";
+					});
+					document.querySelectorAll("[data-gsap='stagger'] > *").forEach((el) => {
+						(el as HTMLElement).style.opacity = "1";
+						(el as HTMLElement).style.transform = "none";
+					});
+				}, 3500);
+			});
 		</script>
 	</body>
 </html>
