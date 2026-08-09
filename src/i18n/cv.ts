@@ -367,6 +367,42 @@ export const cv_en = {
       highlights: [],
       url: "https://perseus.cognilab.dev/",
     },
+    {
+      name: "Thor",
+      isActive: true,
+      startDate: "2025-01-01",
+      description:
+        "Gamified raffles platform with live roulette, SHA-256 verifiable randomness, and Wompi/Bold payments.",
+      highlights: [],
+      url: "https://thor.cognilab.dev/",
+    },
+    {
+      name: "Atenea",
+      isActive: true,
+      startDate: "2025-01-01",
+      description:
+        "Secure API key management with AES-256-GCM encryption, role-based access, audit logging, and 2FA.",
+      highlights: [],
+      url: "https://atenea.cognilab.dev/",
+    },
+    {
+      name: "Nabu",
+      isActive: true,
+      startDate: "2025-01-01",
+      description:
+        "AI-powered web scraping SaaS that extracts structured data from any website using LLM.",
+      highlights: [],
+      url: "https://nabu.cognilab.dev/",
+    },
+    {
+      name: "CogniLab",
+      isActive: true,
+      startDate: "2025-01-01",
+      description:
+        "SaaS studio landing page showcasing all products with GSAP animations and dark neural-lab aesthetic.",
+      highlights: [],
+      url: "https://cognilab.dev/",
+    },
   ],
 } as const;
 
@@ -461,23 +497,43 @@ export const cv_es = {
     },
     {
       ...cv_en.projects[2],
-      description: "Plataforma de redención de millas del Banco Pichincha, permitiendo a los clientes intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
+      description: "Plataforma de redención de millas del Banco Pichincha.",
     },
     {
       ...cv_en.projects[3],
-      description: "Plataforma de redención de millas de Club Miles Ecuador, permitiendo a los miembros intercambiar sus millas acumuladas por productos disponibles dentro de la plataforma.",
+      description: "Plataforma de redención de millas de Club Miles Ecuador.",
     },
     {
       ...cv_en.projects[4],
-      description: "Proyecto personal para control de ventas e inventario, con gestión de usuarios y permisos.",
+      description: "Sistema POS moderno con facturación electrónica DIAN, gestión de inventario y reportes para negocios colombianos.",
     },
     {
       ...cv_en.projects[5],
-      description: "Aplicación de planning poker ágil para equipos remotos para estimar historias de usuario.",
+      description: "Plataforma de gestión empresarial para emprendedores con ventas, inventario, gastos y analíticas.",
     },
     {
       ...cv_en.projects[6],
-      description: "Plataforma de alquiler de vehículos con disponibilidad en tiempo real y sistema de reservas.",
+      description: "Herramienta de vectorización inteligente que convierte imágenes a SVG con eliminación de fondo y edición de colores.",
+    },
+    {
+      ...cv_en.projects[7],
+      description: "Aplicación de finanzas personales con transacciones, deudas, ahorros, presupuestos y escaneo de recibos.",
+    },
+    {
+      ...cv_en.projects[8],
+      description: "Plataforma de sorteos gamificados con ruleta en vivo, aleatoriedad SHA-256 verificable y pagos Wompi/Bold.",
+    },
+    {
+      ...cv_en.projects[9],
+      description: "Gestión segura de API keys con cifrado AES-256-GCM, control de acceso por roles, auditoría y 2FA.",
+    },
+    {
+      ...cv_en.projects[10],
+      description: "Plataforma SaaS de scraping web con IA que extrae datos estructurados de cualquier sitio web usando LLM.",
+    },
+    {
+      ...cv_en.projects[11],
+      description: "Landing page del estudio de productos SaaS con animaciones GSAP y estética dark neural-lab.",
     },
   ],
 } as const;
