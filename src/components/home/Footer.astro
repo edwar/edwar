@@ -4,11 +4,9 @@ import { Icon } from "astro-icon/components";
 ---
 
 <Section>
-  <footer class="w-full py-12">
+  <footer class="w-full py-12" data-gsap="reveal">
     <div class="max-w-4xl mx-auto px-4">
-      <!-- Main content -->
       <div class="flex flex-col items-center space-y-6">
-        <!-- Social links -->
         <div class="flex space-x-6">
           <a
             href="https://github.com/edwar"
@@ -30,7 +28,6 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
 
-        <!-- Copyright -->
         <div class="text-center">
           <p class="text-sm text-gray-500 dark:text-gray-400 font-light">
             &copy; {new Date().getFullYear()} Edwar Amaya

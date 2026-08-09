@@ -226,7 +226,7 @@ const projects = [
   id="projects"
   class="flex flex-col w-full gap-5 items-center justify-center pt-24 scroll-mt-20"
 >
-  <h2 class="text-4xl font-bold flex items-center justify-center gap-2" data-gsap="reveal">
+  <h2 class="text-4xl font-bold flex items-center justify-center gap-2" data-gsap="clip">
     <span
       class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500"
     >
@@ -245,7 +245,8 @@ const projects = [
           description={item.description}
           link={item.link}
           class={spanClasses[index] || ""}
-          data-gsap="reveal"
+          data-gsap="card"
+          data-tilt
         />
       ))
     }
