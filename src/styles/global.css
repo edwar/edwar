@@ -17,11 +17,7 @@
   }
 }
 
-/* Explicitly support dark: variant for class selector */
 @variant dark (&:where(.dark, .dark *));
-
-
-/* Outfit is now imported in the Layout files via Google Fonts */
 
 @layer base {
   html {
@@ -29,7 +25,7 @@
   }
 }
 
-/* Scroll reveal animations */
+/* Fallback reveal for no-JS */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -41,22 +37,10 @@
   transform: translateY(0);
 }
 
-.reveal-delay-100 {
-  transition-delay: 100ms;
-}
-
-.reveal-delay-200 {
-  transition-delay: 200ms;
-}
-
-.reveal-delay-300 {
-  transition-delay: 300ms;
-}
-
-.reveal-delay-400 {
-  transition-delay: 400ms;
-}
-
-.reveal-delay-500 {
-  transition-delay: 500ms;
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

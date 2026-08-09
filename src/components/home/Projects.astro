@@ -11,6 +11,10 @@ import Hermes from "@/assets/web-hermes.webp";
 import Loki from "@/assets/web-loki.webp";
 import Apolo from "@/assets/web-apolo.webp";
 import Perseus from "@/assets/web-perseus.webp";
+import Thor from "@/assets/web-thor.webp";
+import Atenea from "@/assets/web-atenea.webp";
+import Nabu from "@/assets/web-nabu.webp";
+import CogniLab from "@/assets/web-cognilab.webp";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -143,6 +147,69 @@ const projects = [
     description: t("projects.desc.perseus"),
     link: "https://perseus.cognilab.dev/",
   },
+  {
+    name: "Thor",
+    image: Thor,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:javascript",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:postgresql",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.thor"),
+    link: "https://thor.cognilab.dev/",
+  },
+  {
+    name: "Atenea",
+    image: Atenea,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.atenea"),
+    link: "https://atenea.cognilab.dev/",
+  },
+  {
+    name: "Nabu",
+    image: Nabu,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.nabu"),
+    link: "https://nabu.cognilab.dev/",
+  },
+  {
+    name: "CogniLab",
+    image: CogniLab,
+    icons: [
+      "logos:astro-icon",
+      "logos:react",
+      "logos:tailwindcss-icon",
+      "logos:html-5",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    description: t("projects.desc.cognilab"),
+    link: "https://cognilab.dev/",
+  },
 ];
 ---
 
@@ -150,7 +217,7 @@ const projects = [
   id="projects"
   class="flex flex-col w-full gap-5 items-center justify-center pt-24 scroll-mt-20"
 >
-  <h2 class="text-4xl font-bold flex items-center justify-center gap-2 reveal">
+  <h2 class="text-4xl font-bold flex items-center justify-center gap-2" data-gsap="reveal">
     <span
       class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500"
     >
@@ -158,7 +225,7 @@ const projects = [
     </span>
     <Icon name="mdi:fire" class="text-fuchsia-600 animate-pulse shrink-0" />
   </h2>
-  <BentoGrid class="p-5">
+  <BentoGrid class="p-5" data-gsap="stagger">
     {
       projects.map((item, index) => (
         <BentoGridItem
@@ -168,7 +235,7 @@ const projects = [
           title={item.name}
           description={item.description}
           link={item.link}
-          class={`reveal reveal-delay-${((index % 3) + 1) * 100} ${index === 3 ? "md:col-span-2" : ""}`}
+          class={index === 3 ? "md:col-span-2" : ""}
         />
       ))
     }
