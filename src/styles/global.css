@@ -1,44 +1,94 @@
 @import "tailwindcss";
-@import "@fontsource-variable/outfit";
-
-@theme {
-  --breakpoint-xs: 475px;
-}
-
-@layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #0f172a;
-  }
-
-  .dark {
-    --background: #020617;
-    --foreground: #f8fafc;
-    color-scheme: dark;
-  }
-}
+@import "@fontsource-variable/bricolage-grotesque/wdth.css";
+@import "@fontsource-variable/hanken-grotesk";
 
 @variant dark (&:where(.dark, .dark *));
 
+/* Design tokens: see DESIGN.md. Neutrals tinted toward hue 260, one cobalt accent. */
+:root {
+  --bg: oklch(0.985 0.004 260);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.965 0.008 260);
+  --line: oklch(0.89 0.01 260);
+  --ink: oklch(0.2 0.02 265);
+  --ink-muted: oklch(0.44 0.02 262);
+  --accent: oklch(0.5 0.22 262);
+  --accent-ink: oklch(1 0 0);
+  --accent-soft: oklch(0.95 0.03 262);
+  --nav-shadow-alpha: 0.18;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: oklch(0.16 0.015 265);
+  --surface: oklch(0.2 0.018 265);
+  --surface-2: oklch(0.25 0.02 265);
+  --line: oklch(0.32 0.02 265);
+  --ink: oklch(0.96 0.005 260);
+  --ink-muted: oklch(0.75 0.02 262);
+  --accent: oklch(0.76 0.14 262);
+  --accent-ink: oklch(0.16 0.015 265);
+  --accent-soft: oklch(0.27 0.05 262);
+  --nav-shadow-alpha: 0.6;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --breakpoint-xs: 475px;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk Variable', system-ui, sans-serif;
+}
+
 @layer base {
   html {
-    font-family: 'Outfit Variable', sans-serif;
+    font-family: var(--font-sans);
+    background-color: var(--bg);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 8px;
   }
 }
 
 /* Hide animated elements until GSAP takes over (avoids a flash of visible
    content). `js` is set in <head> only when motion is allowed; `gsap-ready`
    is set once GSAP has applied its own initial states. */
-html.js:not(.gsap-ready) :is(
-  [data-hero-nav],
-  [data-hero-badge],
-  [data-hero-line],
-  [data-hero-sub],
-  [data-hero-bio],
-  [data-hero-btn],
-  [data-hero-img],
-  [data-gsap]:not([data-gsap="parallax"])
-) {
+html.js:not(.gsap-ready) :is([data-hero], [data-reveal]) {
   opacity: 0;
 }
 
@@ -49,7 +99,7 @@ html.js:not(.gsap-ready) :is(
   navigation: auto;
 }
 
-nav[data-hero-nav] {
+nav[data-site-nav] {
   view-transition-name: site-nav;
 }
 

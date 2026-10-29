@@ -19,10 +19,12 @@ export const projects: {
   image: ImageMetadata;
   icons: string[];
   descriptionKey: UiKey;
+  group: "company" | "own";
   link: string;
 }[] = [
   {
     name: "Saludtools",
+    group: "company",
     image: SaludTools,
     icons: [
       "logos:angular-icon",
@@ -38,6 +40,7 @@ export const projects: {
   },
   {
     name: "Pichincha Miles",
+    group: "company",
     image: PichinchaMiles,
     icons: [
       "logos:stylus",
@@ -54,6 +57,7 @@ export const projects: {
   },
   {
     name: "Club Miles Ecuador",
+    group: "company",
     image: ClubMiles,
     icons: [
       "logos:stylus",
@@ -70,6 +74,7 @@ export const projects: {
   },
   {
     name: "VLink",
+    group: "own",
     image: VLink,
     icons: [
       "logos:nextjs-icon",
@@ -86,6 +91,7 @@ export const projects: {
   },
   {
     name: "Hermes",
+    group: "own",
     image: Hermes,
     icons: [
       "logos:nextjs-icon",
@@ -102,6 +108,7 @@ export const projects: {
   },
   {
     name: "Loki",
+    group: "own",
     image: Loki,
     icons: [
       "logos:nextjs-icon",
@@ -118,6 +125,7 @@ export const projects: {
   },
   {
     name: "Apolo",
+    group: "own",
     image: Apolo,
     icons: [
       "logos:nextjs-icon",
@@ -133,6 +141,7 @@ export const projects: {
   },
   {
     name: "Perseus",
+    group: "own",
     image: Perseus,
     icons: [
       "logos:nextjs-icon",
@@ -149,6 +158,7 @@ export const projects: {
   },
   {
     name: "Thor",
+    group: "own",
     image: Thor,
     icons: [
       "logos:nextjs-icon",
@@ -165,6 +175,7 @@ export const projects: {
   },
   {
     name: "Atenea",
+    group: "own",
     image: Atenea,
     icons: [
       "logos:nextjs-icon",
@@ -181,6 +192,7 @@ export const projects: {
   },
   {
     name: "Nabu",
+    group: "own",
     image: Nabu,
     icons: [
       "logos:nextjs-icon",
@@ -197,6 +209,7 @@ export const projects: {
   },
   {
     name: "CogniLab",
+    group: "own",
     image: CogniLab,
     icons: [
       "logos:astro-icon",

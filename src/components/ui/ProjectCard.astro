@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import ProjectStack from "@/components/ui/ProjectStack.astro";
+
+const { name, image, icons, description, link, linkLabel } = Astro.props;
+---
+
+<article
+  class="group relative flex flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent"
+  data-reveal
+>
+  <div class="aspect-[3/2] overflow-hidden bg-surface-2">
+    <Image
+      src={image}
+      alt=""
+      width={900}
+      height={600}
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <h3 class="text-xl font-semibold leading-tight text-ink">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="decoration-accent decoration-2 underline-offset-4 after:absolute after:inset-0 group-hover:underline focus-visible:outline-offset-[-3px]"
+      >
+        {name}<span class="sr-only"> - {linkLabel}</span>
+      </a>
+    </h3>
+    <p class="text-ink-muted">{description}</p>
+    <ProjectStack icons={icons.slice(0, 6)} class="mt-auto pt-2" />
+    <span class="inline-flex items-center gap-1 font-semibold text-accent" aria-hidden="true">
+      {linkLabel}
+      <Icon name="mdi:arrow-top-right" width="18" height="18" class="transition-transform motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5" />
+    </span>
+  </div>
+</article>

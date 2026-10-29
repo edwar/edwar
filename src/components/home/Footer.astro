@@ -2,46 +2,60 @@
 import Section from "@/components/ui/Section.astro";
 import { Icon } from "astro-icon/components";
 import { site } from "@/data/site";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const whatsappText = encodeURIComponent(t("hero.whatsapp_msg"));
 ---
 
-<Section>
-  <footer class="w-full py-12" data-gsap="reveal">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="flex flex-col items-center space-y-6">
-        <div class="flex space-x-6">
-          <a
-            href={`mailto:${site.email}`}
-            class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-            aria-label={`Email: ${site.email}`}
-          >
-            <Icon name="mdi:email-outline" width="32" height="32" />
-          </a>
-          <a
-            href="https://github.com/edwar"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <Icon name="arcticons:github" width="32" height="32" />
-          </a>
-          <a
-            href="https://linkedin.com/in/edwaramaya"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <Icon name="arcticons:linkedin" width="32" height="32" />
-          </a>
-        </div>
+<footer id="contact" class="border-t border-line bg-surface-2">
+  <Section class="py-16 md:py-24">
+    <div data-reveal>
+      <h2 class="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-[1.05] tracking-tight">
+        {t("contact.title")}
+      </h2>
+      <p class="mt-4 max-w-xl text-lg text-ink-muted">{t("contact.text")}</p>
 
-        <div class="text-center">
-          <p class="text-sm text-gray-500 dark:text-gray-400 font-light">
-            &copy; {new Date().getFullYear()} Edwar Amaya
-          </p>
-        </div>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href={`mailto:${site.email}`}
+          class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 font-semibold text-accent-ink transition-opacity hover:opacity-90"
+        >
+          <Icon name="mdi:email-outline" width="20" height="20" aria-hidden="true" />
+          {site.email}
+        </a>
+        <a
+          href={`https://wa.me/573175227672?text=${whatsappText}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-5 py-3 font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+        >
+          <Icon name="logos:whatsapp-icon" width="20" height="20" aria-hidden="true" />
+          {t("hero.contact")}
+        </a>
       </div>
     </div>
-  </footer>
-</Section>
+
+    <div class="mt-16 flex flex-col-reverse gap-6 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm text-ink-muted">&copy; {new Date().getFullYear()} {site.name}</p>
+      <ul class="flex items-center gap-5 font-medium text-ink-muted">
+        <li>
+          <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-accent">
+            <Icon name="arcticons:github" width="22" height="22" aria-hidden="true" />GitHub
+          </a>
+        </li>
+        <li>
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-accent">
+            <Icon name="arcticons:linkedin" width="22" height="22" aria-hidden="true" />LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href={lang === "es" ? "/es/cv" : "/cv"} class="inline-flex items-center gap-2 transition-colors hover:text-accent">
+            <Icon name="arcticons:intelligent-cv" width="22" height="22" aria-hidden="true" />{t("nav.cv")}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </Section>
+</footer>
