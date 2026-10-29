@@ -99,8 +99,17 @@ html.js:not(.gsap-ready) :is([data-hero], [data-reveal]) {
   navigation: auto;
 }
 
-nav[data-site-nav] {
-  view-transition-name: site-nav;
+/* Circular theme reveal (same-document transition, see Navbar script) */
+html.theme-vt::view-transition-old(root),
+html.theme-vt::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html.theme-vt::view-transition-old(root) {
+  z-index: 1;
+}
+html.theme-vt::view-transition-new(root) {
+  z-index: 2;
 }
 
 @media (prefers-reduced-motion: reduce) {

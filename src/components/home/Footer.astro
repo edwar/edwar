@@ -34,6 +34,15 @@ const whatsappText = encodeURIComponent(t("hero.whatsapp_msg"));
           <Icon name="logos:whatsapp-icon" width="20" height="20" aria-hidden="true" />
           {t("hero.contact")}
         </a>
+        <button
+          type="button"
+          data-copy-email={site.email}
+          class="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line bg-surface px-5 py-3 font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+        >
+          <Icon name="mdi:content-copy" width="20" height="20" aria-hidden="true" />
+          <span data-copy-label>{t("contact.copy")}</span>
+        </button>
+        <span class="sr-only" aria-live="polite" data-copy-status></span>
       </div>
     </div>
 
@@ -59,3 +68,26 @@ const whatsappText = encodeURIComponent(t("hero.whatsapp_msg"));
     </div>
   </Section>
 </footer>
+
+<script is:inline define:vars={{ copied: t("contact.copied") }}>
+  (() => {
+    const btn = document.querySelector("[data-copy-email]");
+    if (!btn) return;
+    const label = btn.querySelector("[data-copy-label]");
+    const status = document.querySelector("[data-copy-status]");
+    const original = label.textContent;
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copyEmail);
+      } catch {
+        return;
+      }
+      label.textContent = copied;
+      if (status) status.textContent = copied;
+      setTimeout(() => {
+        label.textContent = original;
+        if (status) status.textContent = "";
+      }, 2000);
+    });
+  })();
+</script>

@@ -3,6 +3,7 @@ import Section from "@/components/ui/Section.astro";
 import ProjectCard from "@/components/ui/ProjectCard.astro";
 import ProjectRow from "@/components/ui/ProjectRow.astro";
 import { projects } from "@/data/projects";
+import { iconLabel } from "@/lib/utils";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -11,26 +12,89 @@ const t = useTranslations(lang);
 const company = projects.filter((p) => p.group === "company");
 const own = projects.filter((p) => p.group === "own");
 const linkLabel = t("projects.view");
+
+// Filter chips: meaningful technologies used by at least two projects
+const generic = new Set(["html-5", "css-3", "javascript", "github-icon", "vercel-icon", "atlassian", "bitbucket", "stylus", "neon-icon", "firebase-icon"]);
+const counts = new Map<string, number>();
+projects.forEach((p) =>
+  p.icons.forEach((icon) => {
+    if (!generic.has(icon.split(":")[1])) counts.set(icon, (counts.get(icon) ?? 0) + 1);
+  }),
+);
+const filters = [...counts.entries()]
+  .filter(([, n]) => n >= 2)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 8);
+
+const chip =
+  "inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium text-ink transition-colors hover:border-accent aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-accent-ink cursor-pointer";
 ---
 
-<Section id="projects" class="scroll-mt-20 pb-16 md:pb-24">
+<Section id="projects" class="scroll-mt-20 pb-16 pt-16 md:pb-24 md:pt-24" data-projects>
   <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-tight tracking-tight" data-reveal>
     {t("work.title")}
   </h2>
 
-  <h3 class="mt-10 text-lg font-medium text-ink-muted" data-reveal>{t("work.group.company")}</h3>
-  <div class="mt-4 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-    {company.map((p) => (
-      <ProjectCard {...p} description={t(p.descriptionKey)} linkLabel={linkLabel} />
-    ))}
+  <div role="group" aria-label={t("work.filter")} class="mt-6 flex flex-wrap gap-2" data-reveal>
+    <button type="button" class={chip} data-filter="all" aria-pressed="true">
+      {t("work.all")} <span class="opacity-70">{projects.length}</span>
+    </button>
+    {
+      filters.map(([icon, n]) => (
+        <button type="button" class={chip} data-filter={icon} aria-pressed="false">
+          {iconLabel(icon)} <span class="opacity-70">{n}</span>
+        </button>
+      ))
+    }
+  </div>
+  <p class="sr-only" aria-live="polite" data-filter-status></p>
+
+  <div data-group>
+    <h3 class="mt-10 text-lg font-medium text-ink-muted" data-reveal>{t("work.group.company")}</h3>
+    <div class="mt-4 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {company.map((p) => (
+        <div data-project data-icons={p.icons.join(" ")}>
+          <ProjectCard {...p} description={t(p.descriptionKey)} linkLabel={linkLabel} />
+        </div>
+      ))}
+    </div>
   </div>
 
-  <h3 class="mt-14 text-lg font-medium text-ink-muted" data-reveal>{t("work.group.own")}</h3>
-  <div class="mt-4 grid gap-4 lg:grid-cols-2">
-    {own.map((p) => (
-      <div class="lg:[&:last-child:nth-child(odd)]:col-span-2">
-        <ProjectRow {...p} description={t(p.descriptionKey)} linkLabel={linkLabel} />
-      </div>
-    ))}
+  <div data-group>
+    <h3 class="mt-14 text-lg font-medium text-ink-muted" data-reveal>{t("work.group.own")}</h3>
+    <div class="mt-4 grid gap-4 lg:grid-cols-2">
+      {own.map((p) => (
+        <div class="lg:[&:last-child:nth-child(odd)]:col-span-2" data-project data-icons={p.icons.join(" ")}>
+          <ProjectRow {...p} description={t(p.descriptionKey)} linkLabel={linkLabel} />
+        </div>
+      ))}
+    </div>
   </div>
 </Section>
+
+<script is:inline define:vars={{ countLabel: t("work.count") }}>
+  (() => {
+    const root = document.querySelector("[data-projects]");
+    if (!root) return;
+    const buttons = [...root.querySelectorAll("[data-filter]")];
+    const items = [...root.querySelectorAll("[data-project]")];
+    const groups = [...root.querySelectorAll("[data-group]")];
+    const status = root.querySelector("[data-filter-status]");
+
+    const apply = (key) => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === key)));
+      let shown = 0;
+      items.forEach((el) => {
+        const match = key === "all" || el.dataset.icons.split(" ").includes(key);
+        el.hidden = !match;
+        if (match) shown++;
+      });
+      groups.forEach((g) => {
+        g.hidden = !g.querySelector("[data-project]:not([hidden])");
+      });
+      if (status) status.textContent = `${shown} ${countLabel}`;
+      window.dispatchEvent(new Event("portfolio:layout"));
+    };
+    buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.filter)));
+  })();
+</script>

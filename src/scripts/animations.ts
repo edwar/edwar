@@ -35,9 +35,23 @@ if (!prefersReducedMotion) {
 		});
 	}
 
+	// ─── SCROLL PROGRESS LINE IN THE NAVBAR ──────────────
+	const bar = document.querySelector<HTMLElement>("[data-scroll-progress]");
+	if (bar) {
+		const setBar = gsap.quickSetter(bar, "scaleX");
+		ScrollTrigger.create({
+			start: 0,
+			end: "max",
+			onUpdate: (self) => setBar(self.progress),
+		});
+	}
+
+	// Re-measure after content filters change the layout
+	window.addEventListener("portfolio:layout", () => ScrollTrigger.refresh());
+
 	// ─── HERO NAME: VARIABLE TYPE REACTS TO THE POINTER ──
 	const letters = gsap.utils.toArray<HTMLElement>("[data-letter]");
-	const REST = { wght: 620, wdth: 88 };
+	const REST = { wght: 600, wdth: 86 };
 	const PEAK = { wght: 800, wdth: 100 };
 	const state = letters.map(() => ({ t: 0 }));
 
