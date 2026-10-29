@@ -76,6 +76,10 @@ const alternates = getAlternateUrls(Astro.url, Astro.site!);
 				document.documentElement.classList.remove('dark');
 			}
 		</script>
+		<a
+			href="#projects"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-fuchsia-600 focus:text-white focus:font-medium"
+		>{t("nav.skip")}</a>
 		<Background>
 			<slot />
 		</Background>
