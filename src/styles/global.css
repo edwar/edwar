@@ -41,3 +41,20 @@ html.js:not(.gsap-ready) :is(
 ) {
   opacity: 0;
 }
+
+/* Smooth cross-fade between pages (/, /es, /cv) using native view transitions.
+   Pure CSS: no client router, so page scripts keep running as before.
+   Unsupported browsers just navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+
+nav[data-hero-nav] {
+  view-transition-name: site-nav;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
