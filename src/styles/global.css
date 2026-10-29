@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/outfit";
 
 @theme {
   --breakpoint-xs: 475px;
@@ -21,8 +22,22 @@
 
 @layer base {
   html {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', sans-serif;
   }
 }
 
-/* GSAP handles all animations — no CSS reveal classes needed */
+/* Hide animated elements until GSAP takes over (avoids a flash of visible
+   content). `js` is set in <head> only when motion is allowed; `gsap-ready`
+   is set once GSAP has applied its own initial states. */
+html.js:not(.gsap-ready) :is(
+  [data-hero-nav],
+  [data-hero-badge],
+  [data-hero-line],
+  [data-hero-sub],
+  [data-hero-bio],
+  [data-hero-btn],
+  [data-hero-img],
+  [data-gsap]:not([data-gsap="parallax"])
+) {
+  opacity: 0;
+}

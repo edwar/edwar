@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 
 const skillCategories = [
   {
-    title: lang === "es" ? "Frontend" : "Frontend",
+    title: t("skills.cat.frontend"),
     skills: [
       { name: "React", icon: "logos:react" },
       { name: "Next.js", icon: "logos:nextjs-icon" },
@@ -22,7 +22,7 @@ const skillCategories = [
     ],
   },
   {
-    title: lang === "es" ? "Backend & Base de Datos" : "Backend & Data",
+    title: t("skills.cat.backend"),
     skills: [
       { name: "PostgreSQL", icon: "logos:postgresql" },
       { name: "Prisma", icon: "logos:prisma" },
@@ -31,7 +31,7 @@ const skillCategories = [
     ],
   },
   {
-    title: lang === "es" ? "Herramientas" : "Tools",
+    title: t("skills.cat.tools"),
     skills: [
       { name: "Git", icon: "logos:git-icon" },
       { name: "GitHub", icon: "logos:github-icon" },

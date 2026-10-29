@@ -15,7 +15,7 @@ const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
       <div class="overflow-hidden" data-hero-badge>
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 text-sm font-medium text-fuchsia-600 dark:text-fuchsia-400">
           <Icon name="mdi:code-tags" width="16" height="16" />
-          {lang === 'es' ? 'Desarrollador Frontend' : 'Frontend Developer'}
+          {t('hero.badge')}
         </span>
       </div>
 
@@ -29,7 +29,7 @@ const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
       
       <div class="overflow-hidden">
         <p class="max-w-2xl text-center text-slate-600 dark:text-gray-400 mt-2 mb-4 text-lg" data-hero-bio>
-          {lang === 'es' ? 'Apasionado por crear experiencias web hermosas y altamente funcionales utilizando las mejores tecnologías modernas.' : 'Passionate about building beautiful and highly functional web experiences using the best modern technologies.'}
+          {t('hero.bio')}
         </p>
       </div>
 
@@ -55,6 +55,7 @@ const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
     <Image
       src={edwar}
       alt="Edwar Amaya"
+      priority
       class="mask-b-from-80% mask-b-to-100% drop-shadow-lg drop-shadow-fuchsia-600 aspect-auto lg:aspect-[9/14] h-[50%] lg:h-[35rem] w-[20rem] lg:w-[25rem]"
       data-hero-img
     />

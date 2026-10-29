@@ -1,7 +1,7 @@
 ---
 import "@/styles/global.css";
 import Background from "@/components/ui/Background.astro";
-import { getLangFromUrl } from "@/i18n/utils";
+import { getLangFromUrl, getAlternateUrls, useTranslations } from "@/i18n/utils";
 
 interface Props {
 	title?: string;
@@ -9,16 +9,19 @@ interface Props {
 	image?: string;
 }
 
-const { 
-	title = "Edwar Amaya | Senior Frontend Developer & UI Designer", 
-	description = "Frontend Developer specialized in high-performance web applications with React, Next.js, and Astro. Building beautiful, fast, and accessible digital experiences.",
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const {
+	title = t("meta.title"),
+	description = t("meta.description"),
 	image = "/og-image.png"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
 
-const lang = getLangFromUrl(Astro.url);
+const alternates = getAlternateUrls(Astro.url, Astro.site!);
 ---
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
@@ -28,17 +31,17 @@ const lang = getLangFromUrl(Astro.url);
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="alternate" hreflang="en" href={alternates.en} />
+		<link rel="alternate" hreflang="es" href={alternates.es} />
+		<link rel="alternate" hreflang="x-default" href={alternates.en} />
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
+		<meta property="og:locale" content={t("meta.locale")} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={socialImageURL} />
 		<meta property="og:image:width" content="1200" />
@@ -48,6 +51,14 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={socialImageURL} />
+
+		<script is:inline>
+			if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				document.documentElement.classList.add("js");
+				// If GSAP never loads, reveal the content instead of leaving it hidden.
+				setTimeout(() => document.documentElement.classList.remove("js"), 4000);
+			}
+		</script>
 	</head>
 	<body class="bg-slate-950 text-white transition-colors duration-300">
 		<script is:inline>
@@ -113,9 +124,9 @@ const lang = getLangFromUrl(Astro.url);
 						const nav = document.querySelector("nav") as HTMLElement;
 						if (!nav) return;
 						const padding = gsap.utils.interpolate(8, 4, p);
-						const borderAlpha = gsap.utils.interpolate(0.05, 0.12, p);
+						const shadowAlpha = gsap.utils.interpolate(0, 0.12, p);
 						nav.style.paddingBlock = `${padding}px`;
-						nav.style.borderBottomColor = `rgba(255,255,255,${borderAlpha})`;
+						nav.style.boxShadow = `0 1px 12px rgba(0,0,0,${shadowAlpha})`;
 					},
 				});
 
@@ -152,6 +163,7 @@ const lang = getLangFromUrl(Astro.url);
 							duration: 0.9,
 							delay: colDelay + rowDelay,
 							ease: "power2.inOut",
+							onComplete: () => { el.dataset.entered = "true"; },
 							scrollTrigger: { trigger: el, start: "top 95%", toggleActions: "play none none none" },
 						}
 					);
@@ -228,10 +240,15 @@ const lang = getLangFromUrl(Astro.url);
 				});
 
 				// ─── 3D TILT ON HOVER ────────────────────────────────
-				document.querySelectorAll<HTMLElement>("[data-tilt]").forEach((card) => {
+				// Hover effects only make sense with a real pointer, not on touch
+				const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+				if (canHover) document.querySelectorAll<HTMLElement>("[data-tilt]").forEach((card) => {
 					let rafId: number;
 
 					card.addEventListener("mousemove", (e) => {
+						// Don't fight the scroll entrance tween
+						if (card.dataset.entered !== "true") return;
 						cancelAnimationFrame(rafId);
 						rafId = requestAnimationFrame(() => {
 							const rect = card.getBoundingClientRect();
@@ -253,6 +270,7 @@ const lang = getLangFromUrl(Astro.url);
 					});
 
 					card.addEventListener("mouseleave", () => {
+						if (card.dataset.entered !== "true") return;
 						cancelAnimationFrame(rafId);
 						gsap.to(card, {
 							rotateX: 0, rotateY: 0,
@@ -264,7 +282,7 @@ const lang = getLangFromUrl(Astro.url);
 				});
 
 				// ─── MAGNETIC EFFECT ON BUTTONS ───────────────────────
-				document.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((btn) => {
+				if (canHover) document.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((btn) => {
 					btn.addEventListener("mousemove", (e) => {
 						const rect = btn.getBoundingClientRect();
 						const x = e.clientX - rect.left - rect.width / 2;
@@ -286,15 +304,8 @@ const lang = getLangFromUrl(Astro.url);
 				});
 			}
 
-			// ─── SAFETY FALLBACK ────────────────────────────────────
-			setTimeout(() => {
-				document.querySelectorAll("[data-gsap], [data-hero-line], [data-hero-sub], [data-hero-bio], [data-hero-btn], [data-hero-img], [data-hero-badge], [data-hero-nav]").forEach((el) => {
-					(el as HTMLElement).style.opacity = "1";
-					(el as HTMLElement).style.transform = "none";
-					(el as HTMLElement).style.clipPath = "none";
-					(el as HTMLElement).style.filter = "none";
-				});
-			}, 4000);
+			// Hand over from the CSS pre-hide to GSAP's inline states
+			document.documentElement.classList.add("gsap-ready");
 		</script>
 	</body>
 </html>

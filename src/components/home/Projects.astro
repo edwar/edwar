@@ -90,7 +90,7 @@ const projects = [
       "logos:postgresql",
       "logos:vercel-icon",
     ],
-    description: t("projects.desc.vling"),
+    description: t("projects.desc.vlink"),
     link: "https://vlink.cognilab.dev/",
   },
   {
@@ -244,6 +244,7 @@ const projects = [
           title={item.name}
           description={item.description}
           link={item.link}
+          linkLabel={t("projects.view")}
           class={spanClasses[index] || ""}
           data-gsap="card"
           data-tilt

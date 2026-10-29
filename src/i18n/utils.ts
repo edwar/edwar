@@ -11,3 +11,11 @@ export function useTranslations(lang: keyof typeof ui) {
     return ui[lang][key] || ui[defaultLang][key];
   }
 }
+
+export function getAlternateUrls(url: URL, site: URL | string) {
+  const path = url.pathname.replace(/^\/es(?=\/|$)/, '') || '/';
+  return {
+    en: new URL(path, site).href,
+    es: new URL(path === '/' ? '/es/' : `/es${path}`, site).href,
+  };
+}
