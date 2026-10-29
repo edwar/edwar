@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import edwar from "@/assets/edwar.webp";
 import { Icon } from "astro-icon/components";
 import Section from "@/components/ui/Section.astro";
+import { site } from "@/data/site";
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -33,7 +34,7 @@ const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
         </p>
       </div>
 
-      <div data-hero-btn>
+      <div data-hero-btn class="flex flex-wrap items-center justify-center gap-2">
         <a
           href={`https://wa.me/573175227672?text=${whatsappText}`}
           target="_blank"
@@ -48,6 +49,14 @@ const whatsappText = encodeURIComponent(t('hero.whatsapp_msg'));
             <Icon name="logos:whatsapp-icon" width="18" height="18" />
             {t('hero.contact')}
           </div>
+        </a>
+        <a
+          href={`mailto:${site.email}`}
+          class="inline-flex items-center justify-center gap-2 px-5 py-3 mb-2 text-sm font-medium rounded-lg border border-slate-300 dark:border-gray-700 text-slate-700 dark:text-gray-200 hover:border-fuchsia-500 hover:text-fuchsia-600 dark:hover:text-fuchsia-400 focus:ring-4 focus:outline-none focus:ring-fuchsia-300 dark:focus:ring-fuchsia-800 transition-colors duration-300"
+          data-magnetic
+        >
+          <Icon name="mdi:email-outline" width="18" height="18" />
+          {t('hero.email')}
         </a>
       </div>
 
