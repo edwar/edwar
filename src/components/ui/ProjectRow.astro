@@ -3,14 +3,14 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import ProjectStack from "@/components/ui/ProjectStack.astro";
 
-const { name, image, icons, description, link, linkLabel } = Astro.props;
+const { name, image, icons, description, link, linkLabel, kindLabel } = Astro.props;
 ---
 
 <article
   class="group relative flex h-full gap-4 rounded-xl border border-line bg-surface p-3 transition-colors focus-within:border-accent hover:border-accent sm:gap-5 sm:p-4"
   data-reveal
 >
-  <div class="h-24 w-28 shrink-0 overflow-hidden rounded-lg bg-surface-2 sm:h-28 sm:w-36">
+  <div class="aspect-[16/10] w-32 shrink-0 self-start overflow-hidden rounded-lg bg-surface-2 sm:w-44">
     <Image
       src={image}
       alt=""
@@ -18,10 +18,11 @@ const { name, image, icons, description, link, linkLabel } = Astro.props;
       height={224}
       loading="lazy"
       decoding="async"
-      class="h-full w-full object-cover object-left-top transition-transform duration-500 motion-safe:group-hover:scale-[1.04]"
+      class="h-full w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.04]"
     />
   </div>
   <div class="flex min-w-0 flex-1 flex-col gap-1.5">
+    <p class="-mb-0.5 text-xs font-medium text-ink-muted">{kindLabel}</p>
     <h3 class="flex items-center gap-1 text-lg font-semibold leading-tight text-ink">
       <a
         href={link}

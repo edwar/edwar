@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import ProjectStack from "@/components/ui/ProjectStack.astro";
 
-const { name, image, icons, description, link, linkLabel } = Astro.props;
+const { name, image, icons, description, link, linkLabel, kindLabel } = Astro.props;
 ---
 
 <article
@@ -18,7 +18,7 @@ const { name, image, icons, description, link, linkLabel } = Astro.props;
       height={600}
       loading="lazy"
       decoding="async"
-      class="h-full w-full object-cover object-left-top transition-transform duration-500 motion-safe:group-hover:scale-[1.03]"
+      class="h-full w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.03]"
     />
     <span
       class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-accent text-accent-ink opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100"
@@ -28,6 +28,7 @@ const { name, image, icons, description, link, linkLabel } = Astro.props;
     </span>
   </div>
   <div class="flex flex-1 flex-col gap-3 p-5">
+    <p class="-mb-1.5 text-sm font-medium text-ink-muted">{kindLabel}</p>
     <h3 class="text-xl font-semibold leading-tight text-ink">
       <a
         href={link}
