@@ -9,7 +9,7 @@ const { icons, class: className = "" } = Astro.props as { icons: string[]; class
   {
     icons.map((icon) => (
       <li class="inline-flex items-center gap-1.5 rounded-lg bg-surface-2 px-2 py-1 text-xs font-medium text-ink-muted">
-        <Icon name={icon} width="14" height="14" aria-hidden="true" />
+        <span class="flex rounded-sm p-px dark:bg-white/90"><Icon name={icon} width="14" height="14" aria-hidden="true" /></span>
         {iconLabel(icon)}
       </li>
     ))

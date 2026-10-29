@@ -1,23 +1,23 @@
 ---
 name: Edwar Amaya Portfolio
-description: A developer portfolio played straight at the Josh Comeau / Brittany Chiang tier - neutrals, one cobalt accent, a variable-type name as the craft demonstration.
+description: A developer portfolio played straight at the Josh Comeau / Brittany Chiang tier - neutrals and one forest-green accent sampled from the photo, a variable-type name as the craft demonstration.
 colors:
-  bg-light: "oklch(0.985 0.004 260)"
-  surface-light: "oklch(1 0 0)"
-  surface-2-light: "oklch(0.965 0.008 260)"
-  line-light: "oklch(0.89 0.01 260)"
-  ink-light: "oklch(0.2 0.02 265)"
-  ink-muted-light: "oklch(0.44 0.02 262)"
-  accent-light: "oklch(0.5 0.22 262)"
-  accent-soft-light: "oklch(0.95 0.03 262)"
-  bg-dark: "oklch(0.16 0.015 265)"
-  surface-dark: "oklch(0.2 0.018 265)"
-  surface-2-dark: "oklch(0.25 0.02 265)"
-  line-dark: "oklch(0.32 0.02 265)"
-  ink-dark: "oklch(0.96 0.005 260)"
-  ink-muted-dark: "oklch(0.75 0.02 262)"
-  accent-dark: "oklch(0.76 0.14 262)"
-  accent-soft-dark: "oklch(0.27 0.05 262)"
+  bg-light: "oklch(0.982 0.006 125)"
+  surface-light: "oklch(1 0.002 125)"
+  surface-2-light: "oklch(0.96 0.01 135)"
+  line-light: "oklch(0.88 0.015 140)"
+  ink-light: "oklch(0.2 0.02 150)"
+  ink-muted-light: "oklch(0.44 0.025 150)"
+  accent-light: "oklch(0.46 0.09 150)"
+  accent-soft-light: "oklch(0.93 0.035 145)"
+  bg-dark: "oklch(0.17 0.012 150)"
+  surface-dark: "oklch(0.21 0.015 150)"
+  surface-2-dark: "oklch(0.26 0.018 150)"
+  line-dark: "oklch(0.33 0.02 150)"
+  ink-dark: "oklch(0.96 0.008 130)"
+  ink-muted-dark: "oklch(0.76 0.02 140)"
+  accent-dark: "oklch(0.8 0.13 150)"
+  accent-soft-dark: "oklch(0.42 0.06 150)"
 typography:
   display:
     fontFamily: "'Bricolage Grotesque Variable', system-ui, sans-serif"
@@ -77,18 +77,18 @@ components:
 
 Physical scene: a founder or hiring manager skimming several candidates between meetings on a laptop in a lit office, and a developer peer who may open DevTools. Both themes are designed equally; the system preference decides.
 
-**Key characteristics:** neutral scale tinted toward cobalt; a single accent; flat tonal layering with hairline borders; two type families; generous vertical rhythm; one entrance style; everything keyboard-reachable.
+**Key characteristics:** neutral scale tinted toward the green of the photo's jacket; a single accent; flat tonal layering with hairline borders; two type families; generous vertical rhythm; one entrance style; everything keyboard-reachable.
 
 **Anti-references:** the previous look (dark ground, fuchsia-pink gradient, bento cards, tilt and elastic effects), gradient text, glass decoration, icon-heading-text card grids as page structure.
 
 ## Colors
 
-Restrained strategy: neutrals plus one accent used for links, the primary action, focus rings and the active nav item. Neutrals are tinted toward hue 260.
+Restrained strategy: neutrals plus one accent used for links, the primary action, focus rings and the active nav item. Neutrals are tinted toward hue 150, sampled from Edwar's photo (olive jacket #253328, charcoal shirt, navy jeans, warm skin).
 
 - **Ink / Ink Muted:** body and secondary text. Ink Muted still passes 4.5:1 on every surface.
 - **Bg / Surface / Surface 2:** page ground, raised content, recessed panels. Layering is tonal, not shadowed.
 - **Line:** 1px hairlines for cards and dividers.
-- **Cobalt accent:** deep cobalt on light, lighter periwinkle-cobalt on dark. Text on a filled accent is the surface color in light and the dark ground in dark. Accent Soft is the only tint for hover fills and the hero photo panel.
+- **Forest-green accent:** deep forest green on light, light sage-green on dark. Text on a filled accent is the surface color in light and the dark ground in dark. Accent Soft is the only tint for hover fills and the hero photo panel (pale sage on light, mid green on dark so the dark jacket stays separated).
 
 ## Typography
 
@@ -119,5 +119,6 @@ Flat. Cards sit on Surface with a Line border; hover raises the border to Accent
 - Do keep project text at 4.5:1 or better in both themes.
 - Do keep one entrance: elements rise 16px and fade once.
 - Don't add gradients, glass, tilt, elastic or magnetic effects.
-- Don't show tech icons without names.
+- Don't show tech icons without names; monochrome logos sit on a light tile in dark mode.
+- Don't re-pick the accent without re-sampling the photo: the palette follows it.
 - Don't invent clients, metrics or testimonials.

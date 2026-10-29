@@ -4,31 +4,31 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-/* Design tokens: see DESIGN.md. Neutrals tinted toward hue 260, one cobalt accent. */
+/* Design tokens: see DESIGN.md. Neutrals tinted toward hue 150, one forest-green accent sampled from the photo. */
 :root {
-  --bg: oklch(0.985 0.004 260);
-  --surface: oklch(1 0 0);
-  --surface-2: oklch(0.965 0.008 260);
-  --line: oklch(0.89 0.01 260);
-  --ink: oklch(0.2 0.02 265);
-  --ink-muted: oklch(0.44 0.02 262);
-  --accent: oklch(0.5 0.22 262);
+  --bg: oklch(0.982 0.006 125);
+  --surface: oklch(1 0.002 125);
+  --surface-2: oklch(0.96 0.01 135);
+  --line: oklch(0.88 0.015 140);
+  --ink: oklch(0.2 0.02 150);
+  --ink-muted: oklch(0.44 0.025 150);
+  --accent: oklch(0.46 0.09 150);
   --accent-ink: oklch(1 0 0);
-  --accent-soft: oklch(0.95 0.03 262);
+  --accent-soft: oklch(0.93 0.035 145);
   --nav-shadow-alpha: 0.18;
   color-scheme: light;
 }
 
 .dark {
-  --bg: oklch(0.16 0.015 265);
-  --surface: oklch(0.2 0.018 265);
-  --surface-2: oklch(0.25 0.02 265);
-  --line: oklch(0.32 0.02 265);
-  --ink: oklch(0.96 0.005 260);
-  --ink-muted: oklch(0.75 0.02 262);
-  --accent: oklch(0.76 0.14 262);
-  --accent-ink: oklch(0.16 0.015 265);
-  --accent-soft: oklch(0.27 0.05 262);
+  --bg: oklch(0.17 0.012 150);
+  --surface: oklch(0.21 0.015 150);
+  --surface-2: oklch(0.26 0.018 150);
+  --line: oklch(0.33 0.02 150);
+  --ink: oklch(0.96 0.008 130);
+  --ink-muted: oklch(0.76 0.02 140);
+  --accent: oklch(0.8 0.13 150);
+  --accent-ink: oklch(0.17 0.012 150);
+  --accent-soft: oklch(0.42 0.06 150);
   --nav-shadow-alpha: 0.6;
   color-scheme: dark;
 }

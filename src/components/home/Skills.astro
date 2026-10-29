@@ -57,7 +57,7 @@ const skillCategories = [
           <ul class="flex flex-wrap gap-2 md:col-span-9">
             {category.skills.map((skill) => (
               <li class="inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-2 font-medium text-ink">
-                <Icon name={skill.icon} width="20" height="20" aria-hidden="true" />
+                <span class="flex rounded-md p-0.5 dark:bg-white/90"><Icon name={skill.icon} width="20" height="20" aria-hidden="true" /></span>
                 {skill.name}
               </li>
             ))}
