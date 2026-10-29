@@ -19,7 +19,7 @@ A frontend developer who ships complete products end to end (UI, backend, databa
 Bilingual site (English at `/`, Spanish at `/es`), light and dark themes, a printable CV page (`/cv`, `/es/cv`). Astro 7 + Tailwind CSS 4 + GSAP, deployed on Vercel. Primary contact channels are WhatsApp and email (edwaramayadiaz@gmail.com); GitHub and LinkedIn are secondary.
 
 ## Capabilities and Constraints
-- 12 published projects with live links: Saludtools, Pichincha Miles, Club Miles Ecuador (client work) and VLink, Hermes, Loki, Apolo, Perseus, Thor, Atenea, Nabu, CogniLab (own products, several under cognilab.dev).
+- 17 published projects with live links: Saludtools, Pichincha Miles, Club Miles Ecuador (company and client work) and VLink, Hermes, Loki, Apolo, Perseus, Thor, Atenea, Nabu, Meti, Pronty, Hercules, Afrodita, Zeus, CogniLab (own products, most under cognilab.dev).
 - Skills shown: React, Next.js, Astro, Angular, Tailwind, JavaScript, TypeScript, HTML, CSS; PostgreSQL, Prisma, Firebase, Supabase; Git, GitHub, Jira, Bitbucket, Atlassian, Vercel.
 - Both languages must stay in parity; copy lives in `src/i18n`.
 - Must respect `prefers-reduced-motion` and keep strong SEO (sitemap, hreflang, JSON-LD already in place).
@@ -30,7 +30,7 @@ Name: Edwar Amaya. Title currently "Frontend Developer" / "Desarrollador Fronten
 Standing visual preference (chosen 2026-10-29 when offered a bolder world): play the category standard straight. Edwar wants the portfolio to sit alongside the best developer portfolios (Josh Comeau, Brittany Chiang tier): personal, very legible, restrained motion, work forward. Execute conventions at full craft, without irony or smuggled quirk. The previous look (dark ground, fuchsia-pink gradient, bento cards) is replaced, not polished.
 
 ## Evidence on Hand
-Only the published projects and their live links, plus the CV content. No testimonials, client logos or impact metrics are available; future work must not fabricate any.
+Only the 17 published projects and their live links, plus the CV content. No testimonials, client logos or impact metrics are available; future work must not fabricate any.
 
 ## Product Principles
 1. The portfolio is the proof: every detail of its UI/UX should demonstrate the craft being sold.

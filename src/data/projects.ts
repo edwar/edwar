@@ -11,6 +11,11 @@ import Thor from "@/assets/web-thor.webp";
 import Atenea from "@/assets/web-atenea.webp";
 import Nabu from "@/assets/web-nabu.webp";
 import CogniLab from "@/assets/web-cognilab.webp";
+import Meti from "@/assets/web-meti.webp";
+import Pronty from "@/assets/web-pronty.webp";
+import Hercules from "@/assets/web-hercules.webp";
+import Afrodita from "@/assets/web-afrodita.webp";
+import Zeus from "@/assets/web-zeus.webp";
 
 type UiKey = keyof (typeof ui)["en"];
 
@@ -206,6 +211,85 @@ export const projects: {
     ],
     descriptionKey: "projects.desc.nabu",
     link: "https://nabu.cognilab.dev/",
+  },
+  {
+    name: "Meti",
+    group: "own",
+    image: Meti,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.meti",
+    link: "https://meti.cognilab.dev/",
+  },
+  {
+    name: "Pronty",
+    group: "own",
+    image: Pronty,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.pronty",
+    link: "https://pronty.vercel.app/",
+  },
+  {
+    name: "Hercules",
+    group: "own",
+    image: Hercules,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.hercules",
+    link: "https://hercules.cognilab.dev/",
+  },
+  {
+    name: "Afrodita",
+    group: "own",
+    image: Afrodita,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.afrodita",
+    link: "https://afrodita.cognilab.dev/",
+  },
+  {
+    name: "Zeus",
+    group: "own",
+    image: Zeus,
+    icons: [
+      "logos:nextjs-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:prisma",
+      "logos:postgresql",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.zeus",
+    link: "https://zeus.cognilab.dev/es",
   },
   {
     name: "CogniLab",
