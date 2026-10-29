@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -21,8 +22,10 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@iconify-json/arcticons": "^1.2.31",
     "@iconify-json/logos": "^1.2.5",
-    "@iconify-json/mdi": "^1.2.3"
+    "@iconify-json/mdi": "^1.2.3",
+    "typescript": "^6.0.3"
   }
 }
