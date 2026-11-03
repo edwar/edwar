@@ -16,6 +16,7 @@ import Pronty from "@/assets/web-pronty.webp";
 import Hercules from "@/assets/web-hercules.webp";
 import Afrodita from "@/assets/web-afrodita.webp";
 import Zeus from "@/assets/web-zeus.webp";
+import Kairos from "@/assets/web-kairos.webp";
 
 type UiKey = keyof (typeof ui)["en"];
 
@@ -141,6 +142,21 @@ export const projects: {
     ],
     descriptionKey: "projects.desc.meti",
     link: "https://meti.cognilab.dev/",
+  },
+  {
+    name: "Kairos",
+    kind: "own",
+    categories: ["ai", "services"],
+    image: Kairos,
+    icons: [
+      "logos:astro-icon",
+      "logos:tailwindcss-icon",
+      "logos:typescript-icon",
+      "logos:github-icon",
+      "logos:vercel-icon",
+    ],
+    descriptionKey: "projects.desc.kairos",
+    link: "https://kairos.cognilab.dev/",
   },
   {
     name: "Pronty",
